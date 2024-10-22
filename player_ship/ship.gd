@@ -28,3 +28,5 @@ func animate_the_ship()->void:
 	elif move_component.velocity.x > 0:
 		animated_sprite_2d.play("bank_right")
 		flame_animated_sprite.play("bank_right")
+	else :
+		animated_sprite_2d.play("center")
