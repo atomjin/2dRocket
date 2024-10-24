@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3cpm0goxpepr"]
+[gd_scene load_steps=13 format=3 uid="uid://c3cpm0goxpepr"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_sgrxp"]
 [ext_resource type="Script" path="res://components/stats_component.gd" id="2_gg4fk"]
@@ -6,6 +6,12 @@
 [ext_resource type="Script" path="res://components/scale_component.gd" id="4_2oduo"]
 [ext_resource type="Script" path="res://components/flash_component.gd" id="5_6rq4r"]
 [ext_resource type="Script" path="res://components/shake_component.gd" id="6_licjo"]
+[ext_resource type="Script" path="res://components/hurtbox_component.gd" id="7_gxfep"]
+[ext_resource type="Script" path="res://components/hitbox_component.gd" id="8_uw0kx"]
+[ext_resource type="Script" path="res://components/hurt_component.gd" id="9_w7y8x"]
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="10_cjep2"]
+[ext_resource type="PackedScene" uid="uid://ctqyfromcjmmm" path="res://effects/explosion_effect.tscn" id="11_ty2uv"]
+[ext_resource type="Script" path="res://components/destroyed_component.gd" id="12_1ndgj"]
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_sgrxp")
@@ -32,3 +38,27 @@ sprite = NodePath("../AnimatedSprite2D")
 [node name="ShakeComponent" type="Node" parent="." node_paths=PackedStringArray("node")]
 script = ExtResource("6_licjo")
 node = NodePath("../AnimatedSprite2D")
+
+[node name="HurtboxComponent" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("7_gxfep")
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("8_uw0kx")
+
+[node name="HurtComponent" type="Node" parent="." node_paths=PackedStringArray("stats_component", "hurtbox_component")]
+script = ExtResource("9_w7y8x")
+stats_component = NodePath("../StatsComponent")
+hurtbox_component = NodePath("../HurtboxComponent")
+
+[node name="SpawnerComponent" type="Node2D" parent="."]
+script = ExtResource("10_cjep2")
+scene = ExtResource("11_ty2uv")
+
+[node name="DestroyedComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component", "destroy_effect_spawner_component")]
+script = ExtResource("12_1ndgj")
+actor = NodePath("..")
+stats_component = NodePath("../StatsComponent")
+destroy_effect_spawner_component = NodePath("../SpawnerComponent")
