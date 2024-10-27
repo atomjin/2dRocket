@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://cspnb5fehlnsd"]
+
+[ext_resource type="Script" path="res://menus/menu.gd" id="1_bbvqe"]
+[ext_resource type="PackedScene" uid="uid://rihp6tgckgbj" path="res://effects/space_background.tscn" id="1_iq6pp"]
+[ext_resource type="LabelSettings" uid="uid://bss4kg26uk73w" path="res://fonts/title_label_settings.tres" id="2_jgovi"]
+[ext_resource type="LabelSettings" uid="uid://c1omw1b4dnja8" path="res://fonts/default_label_settings.tres" id="3_b4l27"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bbvqe")
+
+[node name="SpaceBackground" parent="." instance=ExtResource("1_iq6pp")]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Meow
+"
+label_settings = ExtResource("2_jgovi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Press 'Space' to play"
+label_settings = ExtResource("3_b4l27")
+horizontal_alignment = 1
+vertical_alignment = 1

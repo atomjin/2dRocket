@@ -13,6 +13,8 @@ func _ready()->void:
 	 
 
 func handle_spawn(enemy_scene: PackedScene, timer: Timer)->void:
-	spawner_component.scene = enemy_scene
-	spawner_component.spawn(Vector2(randf_range(margin, screen_width-margin),-16))
+	var num_enemies = randi_range(1, 3)
+	for i in range(num_enemies):
+		spawner_component.scene = enemy_scene
+		spawner_component.spawn(Vector2(randf_range(margin, screen_width-margin),-16))
 	timer.start()
