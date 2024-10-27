@@ -39,6 +39,7 @@ radius = 8.0
 radius = 6.08276
 
 [node name="GreenEnemy" instance=ExtResource("1_nxe78")]
+scale = Vector2(2.75, 2.75)
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_fvb54")
@@ -47,7 +48,7 @@ autoplay = "move"
 frame_progress = 0.158142
 
 [node name="StatsComponent" parent="." index="1"]
-health = 3
+health = 4
 
 [node name="MoveComponent" parent="." index="2"]
 velocity = Vector2(0, 40)

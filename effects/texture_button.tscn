@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bok0ewywck1wo"]
+
+[ext_resource type="Texture2D" uid="uid://c52ayyiqe8a7s" path="res://assets/Bunny.png" id="1_m4ywt"]
+[ext_resource type="Texture2D" uid="uid://c4kky7po23rdd" path="res://assets/bunny_fog.png" id="2_e0ha0"]
+
+[node name="TextureButton" type="TextureButton"]
+custom_minimum_size = Vector2(10, 10)
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 722.0
+offset_bottom = 723.0
+scale = Vector2(0.35, 0.35)
+disabled = true
+texture_normal = ExtResource("1_m4ywt")
+texture_disabled = ExtResource("2_e0ha0")

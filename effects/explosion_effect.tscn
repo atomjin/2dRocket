@@ -47,6 +47,7 @@ animations = [{
 }]
 
 [node name="ExplosionEffect" type="AnimatedSprite2D"]
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_62e2h")
 autoplay = "default"
 script = ExtResource("1_mbhwh")
