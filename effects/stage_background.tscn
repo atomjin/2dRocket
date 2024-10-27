@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc7msraepqfum"]
+
+[ext_resource type="Texture2D" uid="uid://do8dwrtqyswdg" path="res://assets/BGLevelSelect.jpg" id="1_vaypu"]
+
+[node name="level_select_background" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_vaypu")
+expand_mode = 1
+stretch_mode = 6
+metadata/_edit_use_anchors_ = true
