@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doh6m3tyc5fbo"
-path="res://.godot/imported/Mons_Snake_Frame01.png-222fc77f97fc1e08b98bb19bf6f3620a.ctex"
+uid="uid://bu84vy6wpfx7j"
+path="res://.godot/imported/Mons_Snake_Frame02.png-b03e5c9e6fd4b50fe2729e95603b9d46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Mons_Snake_Frame01.png"
-dest_files=["res://.godot/imported/Mons_Snake_Frame01.png-222fc77f97fc1e08b98bb19bf6f3620a.ctex"]
+source_file="res://assets/snake/Mons_Snake_Frame02.png"
+dest_files=["res://.godot/imported/Mons_Snake_Frame02.png-b03e5c9e6fd4b50fe2729e95603b9d46.ctex"]
 
 [params]
 

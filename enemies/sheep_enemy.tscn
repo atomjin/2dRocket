@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://fv18prg044e0"]
+
+[ext_resource type="PackedScene" uid="uid://c3cpm0goxpepr" path="res://enemies/enemy.tscn" id="1_88l22"]
+[ext_resource type="Texture2D" uid="uid://dka0xw8atplbl" path="res://assets/sheep/Mons_Bomb_Frame02.png" id="2_7meoo"]
+[ext_resource type="Texture2D" uid="uid://d2sdtatr0wdqe" path="res://assets/sheep/Mons_Bomb_Frame01.png" id="3_lpkpu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vm5yc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7meoo")
+}],
+"loop": true,
+"name": &"aggo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lpkpu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SheepEnemy" instance=ExtResource("1_88l22")]
+scale = Vector2(0.15, 0.15)
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_vm5yc")
