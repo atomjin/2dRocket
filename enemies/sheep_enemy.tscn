@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://fv18prg044e0"]
+[gd_scene load_steps=7 format=3 uid="uid://fv18prg044e0"]
 
 [ext_resource type="PackedScene" uid="uid://c3cpm0goxpepr" path="res://enemies/enemy.tscn" id="1_88l22"]
 [ext_resource type="Texture2D" uid="uid://dka0xw8atplbl" path="res://assets/sheep/Mons_Bomb_Frame02.png" id="2_7meoo"]
@@ -23,8 +23,27 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_l7ryk"]
+radius = 206.774
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3frqb"]
+radius = 160.0
+
 [node name="SheepEnemy" instance=ExtResource("1_88l22")]
 scale = Vector2(0.15, 0.15)
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_vm5yc")
+
+[node name="StatsComponent" parent="." index="1"]
+health = 5
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="3"]
+position = Vector2(3.33332, -6.66665)
+scale = Vector2(24.3333, 22.6667)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("CircleShape2D_l7ryk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_3frqb")
