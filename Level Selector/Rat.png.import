@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p7k4hchpmua4"
-path="res://.godot/imported/Cloud.png-e1bcfca8e2f6b8bd876b687c13a0013e.ctex"
+uid="uid://btmkb3q7ow3l"
+path="res://.godot/imported/Rat.png-e10b4b390f802211ab6d3e1297a0b3a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level Selector-20241027T133937Z-001/Level Selector/Cloud.png"
-dest_files=["res://.godot/imported/Cloud.png-e1bcfca8e2f6b8bd876b687c13a0013e.ctex"]
+source_file="res://Level Selector/Rat.png"
+dest_files=["res://.godot/imported/Rat.png-e10b4b390f802211ab6d3e1297a0b3a6.ctex"]
 
 [params]
 

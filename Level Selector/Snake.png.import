@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sagnf7wftyx"
-path="res://.godot/imported/Cow.png-78e3d78c9f3bb358893c6a364d56b93d.ctex"
+uid="uid://dbc5pbq8oyex5"
+path="res://.godot/imported/Snake.png-b7c15ed28e024853f7952c2c9df323bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level Selector-20241027T133937Z-001/Level Selector/Cow.png"
-dest_files=["res://.godot/imported/Cow.png-78e3d78c9f3bb358893c6a364d56b93d.ctex"]
+source_file="res://Level Selector/Snake.png"
+dest_files=["res://.godot/imported/Snake.png-b7c15ed28e024853f7952c2c9df323bf.ctex"]
 
 [params]
 

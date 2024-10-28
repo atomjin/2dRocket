@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pvd525or2y32"
-path="res://.godot/imported/StarBlank.png-96af7cb77ed2f76531a36680fab59664.ctex"
+uid="uid://bu84vy6wpfx7j"
+path="res://.godot/imported/Mons_Snake_Frame02.png-7b2c2bcc646da451ac55b04c2bbf3492.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level Selector-20241027T133937Z-001/Level Selector/StarBlank.png"
-dest_files=["res://.godot/imported/StarBlank.png-96af7cb77ed2f76531a36680fab59664.ctex"]
+source_file="res://assets/Mons_Snake_Frame02.png"
+dest_files=["res://.godot/imported/Mons_Snake_Frame02.png-7b2c2bcc646da451ac55b04c2bbf3492.ctex"]
 
 [params]
 

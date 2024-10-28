@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d7icrih1jqh7"
-path="res://.godot/imported/BGLevelSelect.jpg-5573d479f2567e6c93d67e4d51803170.ctex"
+uid="uid://drmi3b8fotr"
+path="res://.godot/imported/Example.png-8153d1908bc0913923f8b85ac664d8f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level Selector-20241027T133937Z-001/Level Selector/BGLevelSelect.jpg"
-dest_files=["res://.godot/imported/BGLevelSelect.jpg-5573d479f2567e6c93d67e4d51803170.ctex"]
+source_file="res://Level Selector/Example.png"
+dest_files=["res://.godot/imported/Example.png-8153d1908bc0913923f8b85ac664d8f6.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbc5pbq8oyex5"
-path="res://.godot/imported/Snake.png-0c7fd9a552f281248af922ab6d291801.ctex"
+uid="uid://pvd525or2y32"
+path="res://.godot/imported/StarBlank.png-e13f740af33efdb44ae8a90512ff4f8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level Selector-20241027T133937Z-001/Level Selector/Snake.png"
-dest_files=["res://.godot/imported/Snake.png-0c7fd9a552f281248af922ab6d291801.ctex"]
+source_file="res://Level Selector/StarBlank.png"
+dest_files=["res://.godot/imported/StarBlank.png-e13f740af33efdb44ae8a90512ff4f8d.ctex"]
 
 [params]
 
