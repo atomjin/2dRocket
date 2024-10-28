@@ -16,3 +16,10 @@ extends Node
 # Create our signals for health
 signal health_changed() # Emit when the health value has changed
 signal no_health() # Emit when there is no health left
+
+
+
+
+
+
+  
