@@ -25,10 +25,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88w72"]
-size = Vector2(80, 344)
+size = Vector2(192, 672)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fl40t"]
-size = Vector2(64, 328)
+size = Vector2(128, 624)
 
 [node name="BossSnake" instance=ExtResource("1_igrac")]
 scale = Vector2(0.5, 0.5)
@@ -43,15 +43,15 @@ autoplay = "default"
 health = 10
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="3"]
-position = Vector2(-3.8147e-06, -48)
-scale = Vector2(4.8, 17.6)
+position = Vector2(1.04904e-05, -104)
+scale = Vector2(11.2, 36)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
-position = Vector2(0, -52)
+position = Vector2(0, -112)
 shape = SubResource("RectangleShape2D_88w72")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
-position = Vector2(0, -52)
+position = Vector2(0, -120)
 shape = SubResource("RectangleShape2D_fl40t")
 
 [node name="BorderBounceComponent" type="Node" parent="." index="13" node_paths=PackedStringArray("actor", "move_component")]
