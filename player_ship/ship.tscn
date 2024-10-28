@@ -6,8 +6,11 @@
 [ext_resource type="Script" path="res://components/move_input_component.gd" id="3_cg87l"]
 [ext_resource type="Texture2D" uid="uid://s2rr8mp834n1" path="res://Cat_Default-20241027T152932Z-001/Cat_Default/Cat_Default_Frame03.png" id="4_okxqs"]
 [ext_resource type="Resource" uid="uid://b8rs1w4ia4ff2" path="res://player_ship/ship_move_stats.tres" id="4_xhois"]
+[ext_resource type="Texture2D" uid="uid://c7poxt3jigrn4" path="res://assets/mc/Cat_Default_Frame02.png" id="5_1go31"]
+[ext_resource type="Texture2D" uid="uid://0xr45va1788d" path="res://assets/mc/Cat_Default_Frame01.png" id="5_026sf"]
 [ext_resource type="Script" path="res://components/position_clamp_component.gd" id="5_nib22"]
-[ext_resource type="Texture2D" uid="uid://de6pdxks2s3hc" path="res://Cat_Default-20241027T152932Z-001/Cat_Default/Cat_Default_Frame02.png" id="6_5emxf"]
+[ext_resource type="Texture2D" uid="uid://c14gqoijodeob" path="res://assets/mc/Cat_Default_Frame03.png" id="6_f72cs"]
+[ext_resource type="Texture2D" uid="uid://cklyq12pthr0i" path="res://assets/mc/Cat_GotAttack_Frame01.png" id="7_bsv74"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="7_i8bhu"]
 [ext_resource type="Texture2D" uid="uid://ck0utpfwkrlcr" path="res://Cat_Default-20241027T152932Z-001/Cat_Default/Cat_Default_Frame01.png" id="7_il3tq"]
 [ext_resource type="PackedScene" uid="uid://5ld7kplt7jpx" path="res://projectile/laser.tscn" id="8_pm86s"]
@@ -82,44 +85,24 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_okxqs")
+"texture": ExtResource("5_026sf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_il3tq")
+"texture": ExtResource("5_1go31")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_5emxf")
-}],
-"loop": true,
-"name": &"bank_left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_il3tq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_5emxf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_okxqs")
-}],
-"loop": true,
-"name": &"bank_right",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_okxqs")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_il3tq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_5emxf")
+"texture": ExtResource("6_f72cs")
 }],
 "loop": true,
 "name": &"center",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_bsv74")
+}],
+"loop": true,
+"name": &"hurt",
 "speed": 5.0
 }]
 
@@ -135,6 +118,7 @@ health = 3
 
 [node name="FlameAnimatedSprite" type="AnimatedSprite2D" parent="Anchor"]
 unique_name_in_owner = true
+visible = false
 position = Vector2(-1, 32)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_4ij7f")
@@ -143,12 +127,12 @@ autoplay = "center"
 frame_progress = 0.360313
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Anchor"]
-position = Vector2(0, 12.8571)
-scale = Vector2(0.0943253, 0.0943254)
+position = Vector2(0, 11.4286)
+scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_6ay18")
-animation = &"center"
+animation = &"hurt"
 autoplay = "center"
-frame_progress = 0.52062
+frame_progress = 0.744423
 
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("2_ayo0m")
@@ -165,11 +149,11 @@ script = ExtResource("5_nib22")
 actor = NodePath("..")
 
 [node name="RightMuzzle" type="Marker2D" parent="."]
-position = Vector2(20, -16)
+position = Vector2(11.4286, -19.0476)
 scale = Vector2(2, 2)
 
 [node name="LeftMuzzle" type="Marker2D" parent="."]
-position = Vector2(-20, -16)
+position = Vector2(-11.4286, -19.0476)
 scale = Vector2(2, 2)
 
 [node name="SpawnerComponent" type="Node2D" parent="."]
@@ -190,8 +174,9 @@ collision_mask = 0
 script = ExtResource("12_ugsb5")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtboxComponent"]
-scale = Vector2(2, 2)
-polygon = PackedVector2Array(-8, 2, -3, -3, -3, -4, -1, -7, 1, -7, 3, -4, 3, -3, 8, 2, 8, 4, 5, 4, 5, 7, -5, 7, -5, 4, -8, 4)
+position = Vector2(-5.36442e-07, -1.78814e-07)
+scale = Vector2(1.04167, 1.02041)
+polygon = PackedVector2Array(-5.48571, 7.46667, -5.48571, 3.73333, -5.48571, 1.86667, -5.48571, -1.86667, -7.31429, -5.6, -5.48571, -9.33333, -5.48571, -9.33333, -3.65714, -7.46667, -3.65714, -11.2, 5.14984e-07, -9.33333, 3.65714, -11.2, 3.65714, -7.46667, 5.48572, -9.33333, 7.31429, -7.46667, 5.48572, -1.86667, 5.48572, 1.86667, 5.48572, 3.73333, 5.48572, 7.46667, 5.48572, 9.33333, 5.14984e-07, 7.46667, -3.65714, 9.33333)
 
 [node name="HurtComponent" type="Node" parent="." node_paths=PackedStringArray("stats_component", "hurtbox_component")]
 script = ExtResource("13_u33c2")
@@ -208,3 +193,6 @@ script = ExtResource("14_7u0de")
 actor = NodePath("..")
 stats_component = NodePath("../StatsComponent")
 destroy_effect_spawner_component = NodePath("../ExplosionSpawnerComponent")
+
+[node name="AnimatedTimer" type="Timer" parent="."]
+one_shot = true
