@@ -4,12 +4,12 @@
 [ext_resource type="Script" path="res://components/stats_component.gd" id="2_0kaw5"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="2_ayo0m"]
 [ext_resource type="Script" path="res://components/move_input_component.gd" id="3_cg87l"]
-[ext_resource type="Texture2D" uid="uid://670ytm6bhkga" path="res://Cat_Default-20241027T152932Z-001/Cat_Default/Cat_Default_Frame03.png" id="4_okxqs"]
+[ext_resource type="Texture2D" uid="uid://0xr45va1788d" path="res://assets/mc/Cat_Default_Frame01.png" id="4_mc24b"]
 [ext_resource type="Resource" uid="uid://b8rs1w4ia4ff2" path="res://player_ship/ship_move_stats.tres" id="4_xhois"]
+[ext_resource type="Texture2D" uid="uid://c7poxt3jigrn4" path="res://assets/mc/Cat_Default_Frame02.png" id="5_jm774"]
 [ext_resource type="Script" path="res://components/position_clamp_component.gd" id="5_nib22"]
-[ext_resource type="Texture2D" uid="uid://c16ilvv7j6ven" path="res://Cat_Default-20241027T152932Z-001/Cat_Default/Cat_Default_Frame02.png" id="6_5emxf"]
+[ext_resource type="Texture2D" uid="uid://c14gqoijodeob" path="res://assets/mc/Cat_Default_Frame03.png" id="6_2t7ho"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="7_i8bhu"]
-[ext_resource type="Texture2D" uid="uid://dqwsajw8v2fhf" path="res://Cat_Default-20241027T152932Z-001/Cat_Default/Cat_Default_Frame01.png" id="7_il3tq"]
 [ext_resource type="PackedScene" uid="uid://5ld7kplt7jpx" path="res://projectile/laser.tscn" id="8_pm86s"]
 [ext_resource type="Script" path="res://components/scale_component.gd" id="9_r0uxx"]
 [ext_resource type="Texture2D" uid="uid://dg03mfu48ic2b" path="res://assets/ship_flame.png" id="10_s6wsm"]
@@ -82,13 +82,13 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_okxqs")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_il3tq")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_5emxf")
+"texture": null
 }],
 "loop": true,
 "name": &"bank_left",
@@ -96,13 +96,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_il3tq")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_5emxf")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_okxqs")
+"texture": null
 }],
 "loop": true,
 "name": &"bank_right",
@@ -110,13 +110,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_okxqs")
+"texture": ExtResource("4_mc24b")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_il3tq")
+"texture": ExtResource("5_jm774")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_5emxf")
+"texture": ExtResource("6_2t7ho")
 }],
 "loop": true,
 "name": &"center",
@@ -136,6 +136,7 @@ health = 6.0
 
 [node name="FlameAnimatedSprite" type="AnimatedSprite2D" parent="Anchor"]
 unique_name_in_owner = true
+visible = false
 position = Vector2(-1, 32)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_4ij7f")
@@ -149,7 +150,7 @@ scale = Vector2(0.0943253, 0.0943254)
 sprite_frames = SubResource("SpriteFrames_6ay18")
 animation = &"center"
 autoplay = "center"
-frame_progress = 0.52062
+frame_progress = 0.676784
 
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("2_ayo0m")
@@ -192,8 +193,7 @@ collision_mask = 0
 script = ExtResource("12_ugsb5")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtboxComponent"]
-scale = Vector2(2, 2)
-polygon = PackedVector2Array(-8, 2, -3, -3, -3, -4, -1, -7, 1, -7, 3, -4, 3, -3, 8, 2, 8, 4, 5, 4, 5, 7, -5, 7, -5, 4, -8, 4)
+polygon = PackedVector2Array(-5, -0.952377, -6.42857, -5.2381, -5.95239, -7.14285, -4.28572, -6.90475, -3.57144, -9.5238, 0, -8.33333, 3.09523, -9.5238, 4.28571, -7.38095, 5.71428, -7.14285, 6.66666, -5.2381, 5, -1.19048, 4.7619, 3.80952, 5.47618, 7.38095, 6.19048, 8.57143, 4.28571, 9.52382, 0.952377, 7.61905, -0.952393, 7.61905, -3.33334, 9.28572, -5.95239, 8.80952, -5.2381, 7.14287, -5.2381, 5, -4.52382, 3.57143, -5.2381, 1.42857)
 
 [node name="HurtComponent" type="Node" parent="." node_paths=PackedStringArray("stats_component", "hurtbox_component")]
 script = ExtResource("13_u33c2")

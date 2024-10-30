@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnjksj4amlsma"
-path="res://.godot/imported/Dragon.png-42ed7f533c568c5409054ee4c16a6bde.ctex"
+uid="uid://bj7f7yua2alll"
+path="res://.godot/imported/Dragon_Attack_Frame02.png-b4736fdcff0bbfb017ef0d16f5303b34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level Selector-20241027T133937Z-001/Level Selector/Dragon.png"
-dest_files=["res://.godot/imported/Dragon.png-42ed7f533c568c5409054ee4c16a6bde.ctex"]
+source_file="res://assets/boss/dragon/attack/Dragon_Attack_Frame02.png"
+dest_files=["res://.godot/imported/Dragon_Attack_Frame02.png-b4736fdcff0bbfb017ef0d16f5303b34.ctex"]
 
 [params]
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cspnb5fehlnsd"]
+[gd_scene load_steps=6 format=3 uid="uid://cspnb5fehlnsd"]
 
 [ext_resource type="Script" path="res://menus/menu.gd" id="1_bbvqe"]
 [ext_resource type="PackedScene" uid="uid://rihp6tgckgbj" path="res://effects/space_background.tscn" id="1_iq6pp"]
 [ext_resource type="LabelSettings" uid="uid://bss4kg26uk73w" path="res://fonts/title_label_settings.tres" id="2_jgovi"]
+[ext_resource type="VideoStream" path="res://assets/MenuLoading.ogv" id="2_p6o2j"]
 [ext_resource type="LabelSettings" uid="uid://c1omw1b4dnja8" path="res://fonts/default_label_settings.tres" id="3_b4l27"]
 
 [node name="Menu" type="Control"]
@@ -14,9 +15,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bbvqe")
 
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 1920.0
+offset_bottom = 1160.0
+stream = ExtResource("2_p6o2j")
+autoplay = true
+loop = true
+
 [node name="SpaceBackground" parent="." instance=ExtResource("1_iq6pp")]
+visible = false
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
