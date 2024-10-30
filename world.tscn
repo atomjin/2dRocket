@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtdocnkabksd"]
+[gd_scene load_steps=10 format=3 uid="uid://dtdocnkabksd"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_74ca3"]
 [ext_resource type="PackedScene" uid="uid://f84hwee52dqs" path="res://player_ship/ship.tscn" id="1_hcmak"]
@@ -8,6 +8,7 @@
 [ext_resource type="LabelSettings" uid="uid://c1omw1b4dnja8" path="res://fonts/default_label_settings.tres" id="5_wiio1"]
 [ext_resource type="PackedScene" uid="uid://fv18prg044e0" path="res://enemies/sheep_enemy.tscn" id="7_t06np"]
 [ext_resource type="PackedScene" uid="uid://bpn60ckf46cbe" path="res://enemies/tiger_enemy.tscn" id="8_s87h0"]
+[ext_resource type="PackedScene" uid="uid://vhnrljnxgvq0" path="res://enemies/boss_snake.tscn" id="9_bfwgb"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_74ca3")
@@ -33,3 +34,6 @@ vertical_alignment = 1
 
 [node name="TigerEnemy" parent="." instance=ExtResource("8_s87h0")]
 position = Vector2(320, 294)
+
+[node name="BossSnake" parent="." instance=ExtResource("9_bfwgb")]
+position = Vector2(1421, 187)
