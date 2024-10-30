@@ -48,7 +48,7 @@ autoplay = "move"
 frame_progress = 0.158142
 
 [node name="MoveComponent" parent="." index="2"]
-velocity = Vector2(0, 100)
+velocity = Vector2(0, 300)
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="3"]
 position = Vector2(0, 4.17233e-07)
@@ -56,6 +56,9 @@ scale = Vector2(0.8, 0.8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
 shape = SubResource("CircleShape2D_7effo")
+
+[node name="HitboxComponent" parent="." index="8"]
+damage = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
 shape = SubResource("CircleShape2D_xmjtt")

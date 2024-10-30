@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk7r6mv7vgih3"]
+
+[ext_resource type="PackedScene" uid="uid://cfmeci2s8yhth" path="res://stage_selector.tscn" id="1_ef77f"]
+
+[node name="Stage_selecter" type="Node2D"]
+
+[node name="StageSelector" parent="." instance=ExtResource("1_ef77f")]

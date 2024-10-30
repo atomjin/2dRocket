@@ -41,7 +41,6 @@ flash_duration = 0.1
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("6_dbhj6")
-damage = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, 1)

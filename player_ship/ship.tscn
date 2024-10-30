@@ -130,6 +130,7 @@ script = ExtResource("1_b87xd")
 
 [node name="StatsComponent" type="Node" parent="."]
 script = ExtResource("2_0kaw5")
+health = 6.0
 
 [node name="Anchor" type="Node2D" parent="."]
 

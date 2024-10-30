@@ -1,12 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://hk6brtxj8347"]
 
 [ext_resource type="Script" path="res://player_ship/health.gd" id="1_aotq3"]
-
-[ext_resource type="Texture2D" uid="uid://pvd525or2y32" path="res://Level Selector-20241027T133937Z-001/Level Selector/StarBlank.png" id="1_jj6ei"]
-[ext_resource type="Texture2D" uid="uid://xvtdolu3ff5" path="res://Level Selector-20241027T133937Z-001/Level Selector/Star3.png" id="2_57b42"]
-[ext_resource type="Texture2D" uid="uid://dcfx0stp3yngi" path="res://Level Selector-20241027T133937Z-001/Level Selector/Star1.png" id="3_y2vbd"]
-[ext_resource type="Texture2D" uid="uid://crphvvh7o5dt5" path="res://Level Selector-20241027T133937Z-001/Level Selector/Star2.png" id="4_8wvtm"]
-
+[ext_resource type="Texture2D" uid="uid://drjomxkhu83au" path="res://Level Selector-20241027T133937Z-001/Level Selector/StarBlank.png" id="1_jj6ei"]
+[ext_resource type="Texture2D" uid="uid://cj6xla6yye8fr" path="res://Level Selector-20241027T133937Z-001/Level Selector/Star3.png" id="2_57b42"]
+[ext_resource type="Texture2D" uid="uid://jbuoj2515o4k" path="res://Level Selector-20241027T133937Z-001/Level Selector/Star1.png" id="3_y2vbd"]
+[ext_resource type="Texture2D" uid="uid://bepush3wak1ir" path="res://Level Selector-20241027T133937Z-001/Level Selector/Star2.png" id="4_8wvtm"]
 
 [node name="Health" type="Control"]
 layout_mode = 3

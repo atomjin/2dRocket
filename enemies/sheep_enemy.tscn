@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://fv18prg044e0"]
+[gd_scene load_steps=8 format=3 uid="uid://nsfgaqqg7lxx"]
 
 [ext_resource type="PackedScene" uid="uid://c3cpm0goxpepr" path="res://enemies/enemy.tscn" id="1_88l22"]
 [ext_resource type="Texture2D" uid="uid://dka0xw8atplbl" path="res://assets/sheep/Mons_Bomb_Frame02.png" id="2_7meoo"]
@@ -38,9 +38,6 @@ move_speed = 100.0
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_vm5yc")
 autoplay = "default"
-
-[node name="StatsComponent" parent="." index="1"]
-health = 5
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="3"]
 position = Vector2(3.33332, -6.66665)

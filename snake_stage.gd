@@ -13,6 +13,7 @@ func _ready() -> void:
 	# Enable mouse input on the planet node
 	mouse_filter = Control.MouseFilter.MOUSE_FILTER_PASS
 	connect("gui_input", Callable(self, "_on_gui_input"))
+	
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		# Check if fog is visible

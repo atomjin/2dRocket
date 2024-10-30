@@ -2,23 +2,26 @@ extends Control
 
 
 @onready var world: Node2D = $".." as Node2D
-
+@onready var new_scene_path: String = "res://stage_selector.tscn"
 
 func _on_resume_pressed() -> void:
-	world.pauseMenu()
+	world.pause_menu_toggle()
 
 
 func _on_quit_pressed() -> void:
-	cleanup()
-	get_tree().change_scene_to_file("res://stage_selector.tscn")
-	world.queue_free()
+	if world.game_over:
+		change_scene("res://menus/main_menu.tscn")
+	else:
+		change_scene()
 	
-	#ship.queue_free()
-	#world.pauseMenu()
 
-func cleanup():
-	for child in get_children():
-		if child is Node:  # Ensure it's a Node
-			child.queue_free()  # Remove the child node from the scene
-
-	print("All nodes cleared from the current scene.")
+func change_scene(scene_path: String = ""):
+	if scene_path == "":
+		scene_path = new_scene_path
+	
+	var root = get_tree().root
+	for child in root.get_children():
+		child.queue_free()
+	
+	var new_scene=load(new_scene_path).instantiate()
+	root.add_child(new_scene)
