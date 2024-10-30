@@ -20,7 +20,7 @@ texture = ExtResource("1_h3pjn")
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("2_a21mu")
 actor = NodePath("..")
-velocity = Vector2(0, -175)
+velocity = Vector2(0, -5000)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(0, 1)

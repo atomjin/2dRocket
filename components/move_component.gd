@@ -7,4 +7,3 @@ extends Node
 
 func _process(delta: float)->void:
 	actor.translate(velocity * delta)
-	
