@@ -21,8 +21,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cy5y7"]
 size = Vector2(373.333, 586.667)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kmh4"]
-size = Vector2(320, 526.667)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0m32c"]
+size = Vector2(453.333, 660)
 
 [node name="GreenEnemy" instance=ExtResource("1_nxe78")]
 scale = Vector2(0.15, 0.15)
@@ -32,6 +32,9 @@ sprite_frames = SubResource("SpriteFrames_fvb54")
 animation = &"move"
 autoplay = "move"
 frame_progress = 0.158142
+
+[node name="StatsComponent" parent="." index="1"]
+health = 15
 
 [node name="MoveComponent" parent="." index="2"]
 velocity = Vector2(0, 300)
@@ -44,9 +47,6 @@ scale = Vector2(26.6667, 34.6667)
 position = Vector2(0, 26.6667)
 shape = SubResource("RectangleShape2D_cy5y7")
 
-[node name="HitboxComponent" parent="." index="8"]
-damage = 2.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
-position = Vector2(0, 23.3333)
-shape = SubResource("RectangleShape2D_7kmh4")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaserHitbox" index="0"]
+position = Vector2(0, 30)
+shape = SubResource("RectangleShape2D_0m32c")

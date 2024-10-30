@@ -6,22 +6,24 @@ extends Node2D
 @onready var flash_component:  = $FlashComponent as FlashComponent
 @onready var shake_component:  = $ShakeComponent as ShakeComponent
 @onready var hurtbox_component:  = $HurtboxComponent as HurtboxComponent
-@onready var hitbox_component: = $HitboxComponent as HitboxComponent
+@onready var laser_hitbox: LaserHitbox = $LaserHitbox
+
+
 @onready var destroyed_component:  = $DestroyedComponent as DestroyedComponent
 @onready var score_component:  = $ScoreComponent as ScoreComponent
 
 
-func _ready()->void:
+func _ready():
 	stats_component.no_health.connect(func():
 		score_component.adjust_score()
 		)
 	
 	visible_on_screen_notifier_2d.screen_exited.connect(queue_free)
-	hurtbox_component.hurt.connect(func(hitbox: HitboxComponent):
+	hurtbox_component.hurt.connect(func(hitbox: LaserHitbox):
 		scale_component.tween_scale()
 		flash_component.flash()
 		shake_component.tween_shake()
 	)
 	stats_component.no_health.connect(queue_free)
-	hitbox_component.hit_hurtbox.connect(destroyed_component.destroy.unbind(1))
+	laser_hitbox.hit_detect.connect(destroyed_component.destroy.unbind(1))
  

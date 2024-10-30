@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://components/hitbox_component.gd" id="6_dbhj6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fll7k"]
-size = Vector2(6.5, 10.5)
+size = Vector2(4, 8)
 
 [node name="Laser" type="Node2D"]
 scale = Vector2(4, 4)

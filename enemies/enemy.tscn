@@ -46,11 +46,6 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_gxfep")
 
-[node name="HitboxComponent" type="Area2D" parent="."]
-collision_layer = 0
-script = ExtResource("8_uw0kx")
-damage = 1.0
-
 [node name="HurtComponent" type="Node" parent="." node_paths=PackedStringArray("stats_component", "hurtbox_component")]
 script = ExtResource("9_w7y8x")
 stats_component = NodePath("../StatsComponent")
@@ -70,3 +65,6 @@ destroy_effect_spawner_component = NodePath("../SpawnerComponent")
 [node name="ScoreComponent" type="Node" parent="."]
 script = ExtResource("13_wlg5s")
 game_stats = ExtResource("14_f8n8w")
+
+[node name="LaserHitbox" type="Area2D" parent="."]
+script = ExtResource("8_uw0kx")

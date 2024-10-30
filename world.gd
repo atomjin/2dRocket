@@ -7,52 +7,49 @@ extends Node2D
 @onready var pause_menu: Control = $PauseMenu
 @onready var new_scene_path: String = "res://stage_selecter.tscn"
 @onready var enemy_generator: Node2D = $EnemyGenerator
+@onready var laser_hitbox_2: LaserHitbox = $Ship/LaserHitbox2
 
+signal score_reached_2000
 
+"res://projectile/laser.tscn"
 var game_over: bool = false
 var paused = false
-
-
 var current_score: int = 0  # Track the animated score
+var upgrade_applied: bool = false
 
-func _ready() -> void:
-	pass
+
+func _ready() :
+	
 	reset_game()
 	game_stats.score = 0
 	Engine.time_scale = 1
 	update_score_label(game_stats.score)  # Initialize the score label
 	game_stats.score_changed.connect(animate_score)  # Connect score updates
-
+	score_reached_2000.connect(laser_hitbox_2.increase_damage)
+		
 	ship.tree_exiting.connect(func():
 		game_over = true
 		await get_tree().create_timer(1.0).timeout
 		get_tree().change_scene_to_file("res://menus/game_over.tscn")
-		await get_tree().create_timer(60.0).timeout
+		await get_tree().create_timer(1.5).timeout
 		score_label.hide()
 	)
-
-func stop_all_nodes():
 	
-	print("Stop all")
-	
-func stop_enemy_spawning() -> void:
-	if enemy_generator.is_connected("enemy_spawned", Callable(self, "_on_enemy_spawned")):
-		enemy_generator.disconnect("enemy_spawned", Callable(self, "_on_enemy_spawned"))
-		print("Enemy spawning stopped.")
-
+		
 func _process(delta: float) -> void:
-	
+	if not upgrade_applied and current_score >= 2000:
+		score_reached_2000.emit()
+		upgrade_applied = true
+		print()
 	if Input.is_action_just_pressed("pause"):
 		pause_menu_toggle()
 
 	# Update the score label during animation
 	score_label.text = "Score: " + str(current_score)
-
-
+	
 
 func pause_menu_toggle() -> void:
 	if game_over:
-		
 		return
 	if paused:
 		pause_menu.hide()
@@ -73,7 +70,7 @@ func animate_score(new_score: int) -> void:
 	tween.set_ease(Tween.EASE_OUT)  # Set easing after defining the tween
 
 # Update the score instantly if needed
-func update_score_label(new_score: int) -> void:
+func update_score_label(new_score: int):
 	current_score = new_score
 	score_label.text = "Score : " + str(current_score)
 	

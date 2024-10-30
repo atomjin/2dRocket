@@ -15,6 +15,7 @@ grow_vertical = 2
 script = ExtResource("1_ppw2l")
 
 [node name="SpaceBackground" parent="." instance=ExtResource("2_leik3")]
+visible = false
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

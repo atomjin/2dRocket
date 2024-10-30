@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://vhnrljnxgvq0"]
+[gd_scene load_steps=16 format=3 uid="uid://cw8jh0ih8voql"]
 
 [ext_resource type="PackedScene" uid="uid://c3cpm0goxpepr" path="res://enemies/enemy.tscn" id="1_igrac"]
 [ext_resource type="Script" path="res://enemies/boss_snake.gd" id="2_1pjdc"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cpwhhceltospe" path="res://assets/boss/snake/Snake_Default_Frame03.png" id="4_0vap2"]
 [ext_resource type="Script" path="res://components/border_bounce_component.gd" id="6_5nt1x"]
 [ext_resource type="Script" path="res://components/state_component.gd" id="8_3i8oq"]
-[ext_resource type="PackedScene" uid="uid://c6y8fffkus3wn" path="res://projectile/snake_laser.tscn" id="8_8g8p5"]
+[ext_resource type="PackedScene" path="res://projectile/snake_laser.tscn" id="8_8g8p5"]
 [ext_resource type="Script" path="res://components/timed_state_componoent.gd" id="9_j3xym"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="10_18neo"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="11_713iw"]
@@ -49,8 +49,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88w72"]
 size = Vector2(192, 672)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fl40t"]
-size = Vector2(128, 624)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_26k4j"]
+size = Vector2(216, 704)
 
 [node name="BossSnake" instance=ExtResource("1_igrac")]
 position = Vector2(1058, 196)
@@ -66,7 +66,7 @@ animation = &"attack"
 autoplay = "default"
 
 [node name="StatsComponent" parent="." index="1"]
-health = 10
+health = 70
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="3"]
 position = Vector2(1.04904e-05, -104)
@@ -76,11 +76,7 @@ scale = Vector2(11.2, 36)
 position = Vector2(0, -112)
 shape = SubResource("RectangleShape2D_88w72")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
-position = Vector2(0, -120)
-shape = SubResource("RectangleShape2D_fl40t")
-
-[node name="State" type="Node" parent="." index="13"]
+[node name="State" type="Node" parent="." index="12"]
 
 [node name="MoveState" type="Node" parent="State" index="0"]
 unique_name_in_owner = true
@@ -118,4 +114,8 @@ unique_name_in_owner = true
 script = ExtResource("9_j3xym")
 duration = 3.0
 
-[node name="Timer" type="Timer" parent="." index="14"]
+[node name="Timer" type="Timer" parent="." index="13"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaserHitbox" index="0"]
+position = Vector2(0, -104)
+shape = SubResource("RectangleShape2D_26k4j")
