@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtdocnkabksd"]
+[gd_scene load_steps=8 format=3 uid="uid://dtdocnkabksd"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_74ca3"]
 [ext_resource type="PackedScene" uid="uid://f84hwee52dqs" path="res://player_ship/ship.tscn" id="1_hcmak"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://uf1l66y51p4t" path="res://enemies/enemy_generator.tscn" id="3_hi8w8"]
 [ext_resource type="LabelSettings" uid="uid://c1omw1b4dnja8" path="res://fonts/default_label_settings.tres" id="5_wiio1"]
 [ext_resource type="PackedScene" uid="uid://rlbcewmipc8y" path="res://pause_menu.tscn" id="7_ec2nw"]
-[ext_resource type="PackedScene" uid="uid://b1lojbg68e3sb" path="res://enemies/dragon_boss.tscn" id="8_mcxue"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_74ca3")
@@ -35,6 +34,3 @@ offset_top = 544.0
 offset_right = 960.0
 offset_bottom = 544.0
 scale = Vector2(2.28, 2.28)
-
-[node name="DragonBoss" parent="." instance=ExtResource("8_mcxue")]
-position = Vector2(968, 80)

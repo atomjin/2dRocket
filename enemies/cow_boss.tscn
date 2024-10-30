@@ -1,0 +1,82 @@
+[gd_scene load_steps=13 format=3 uid="uid://c53bot04bwoga"]
+
+[ext_resource type="PackedScene" uid="uid://c3cpm0goxpepr" path="res://enemies/enemy.tscn" id="1_bnou3"]
+[ext_resource type="Script" path="res://enemies/cow_boss.gd" id="2_e11i4"]
+[ext_resource type="Texture2D" uid="uid://cd0w2hbwincm7" path="res://assets/boss/cow/Cow_Attack/Cow_Attack_Frame01.png" id="2_joavc"]
+[ext_resource type="Texture2D" uid="uid://cr3p5j27nmgfd" path="res://assets/boss/cow/Cow_Attack/Cow_Attack_Frame02.png" id="3_oviw5"]
+[ext_resource type="Texture2D" uid="uid://bwh1ef7cx8ev8" path="res://assets/boss/cow/Cow_Default/Cow_Default_Frame01.png" id="4_5ybx5"]
+[ext_resource type="Texture2D" uid="uid://bao4qh4jbg4lw" path="res://assets/boss/cow/Cow_Default/Cow_Default_Frame02.png" id="5_mon57"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="7_k055s"]
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="8_vmnmi"]
+[ext_resource type="PackedScene" uid="uid://dolv26ksf5ecg" path="res://projectile/bunny_projectile.tscn" id="9_cev2c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x6wog"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_joavc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oviw5")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5ybx5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mon57")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q87fm"]
+size = Vector2(544, 560)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6upju"]
+size = Vector2(464, 504)
+
+[node name="CowBoss" instance=ExtResource("1_bnou3")]
+scale = Vector2(0.35, 0.35)
+script = ExtResource("2_e11i4")
+move_speed = 100.0
+dash_speed = 300.0
+dash_duration = 2.5
+bullet_speed = 1.0
+bullet_angle_offset = 0.523599
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_x6wog")
+animation = &"dash"
+autoplay = "default"
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="3"]
+position = Vector2(-8, -8)
+scale = Vector2(31.2, 31.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_q87fm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_6upju")
+
+[node name="MoveComponent2" type="Node" parent="." index="13" node_paths=PackedStringArray("actor")]
+script = ExtResource("7_k055s")
+actor = NodePath("..")
+
+[node name="AttackTimer" type="Timer" parent="." index="14"]
+
+[node name="SpawnerComponent2" type="Node2D" parent="." index="15"]
+script = ExtResource("8_vmnmi")
+scene = ExtResource("9_cev2c")
+
+[node name="DashTimer" type="Timer" parent="." index="16"]
+
+[node name="MoveTimer" type="Timer" parent="." index="17"]

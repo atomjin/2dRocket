@@ -1,0 +1,100 @@
+[gd_scene load_steps=15 format=3 uid="uid://cwfo0vuh4xq2u"]
+
+[ext_resource type="PackedScene" uid="uid://c3cpm0goxpepr" path="res://enemies/enemy.tscn" id="1_f6m4m"]
+[ext_resource type="Script" path="res://enemies/tiger_boss.gd" id="2_ugfqy"]
+[ext_resource type="Texture2D" uid="uid://cilanp66xqm0l" path="res://assets/boss/tiger/Tiger_Attack/Tiger_Roar/Tiger_Roar_Frame01.png" id="3_dljxr"]
+[ext_resource type="Texture2D" uid="uid://c123wvxltn046" path="res://assets/boss/tiger/Tiger_Attack/Tiger_Roar/Tiger_Roar_Frame02.png" id="4_qkh5l"]
+[ext_resource type="Texture2D" uid="uid://cfw8nkw3bg7ny" path="res://assets/boss/tiger/Tiger_Attack/Tiger_Dash/Tiger_Dash_Frame01.png" id="5_xs58o"]
+[ext_resource type="Texture2D" uid="uid://duoe0e1kr6ifo" path="res://assets/boss/tiger/Tiger_Attack/Tiger_Dash/Tiger_Dash_Frame02.png" id="6_3v0e6"]
+[ext_resource type="Texture2D" uid="uid://xv5frt1011la" path="res://assets/boss/tiger/Tiger_Default/TIger_Default_Frame01.png" id="7_ks7eg"]
+[ext_resource type="Texture2D" uid="uid://c3shmxmgbnn4a" path="res://assets/boss/tiger/Tiger_Default/TIger_Default_Frame02.png" id="8_k52gc"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="9_8n8w6"]
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="10_men2o"]
+[ext_resource type="PackedScene" uid="uid://dolv26ksf5ecg" path="res://projectile/bunny_projectile.tscn" id="11_0nkcf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_me4u3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dljxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qkh5l")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_xs58o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3v0e6")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ks7eg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_k52gc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lkulk"]
+size = Vector2(422.857, 331.429)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42nmu"]
+size = Vector2(365.714, 285.714)
+
+[node name="TigerBoss" instance=ExtResource("1_f6m4m")]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("2_ugfqy")
+move_speed = 100.0
+dash_speed = 500.0
+dash_duration = 1.5
+bullet_speed = 100.0
+bullet_count = 8
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(8, 0)
+sprite_frames = SubResource("SpriteFrames_me4u3")
+autoplay = "default"
+
+[node name="StatsComponent" parent="." index="1"]
+health = 10
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="3"]
+position = Vector2(22.8571, 34.2857)
+scale = Vector2(36.5714, 28.5714)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+position = Vector2(17.1429, 40)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_lkulk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+position = Vector2(22.8571, 40)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_42nmu")
+
+[node name="MoveComponent2" type="Node" parent="." index="13" node_paths=PackedStringArray("actor")]
+script = ExtResource("9_8n8w6")
+actor = NodePath("..")
+
+[node name="AttackTimer" type="Timer" parent="." index="14"]
+
+[node name="SpawnerComponent2" type="Node2D" parent="." index="15"]
+script = ExtResource("10_men2o")
+scene = ExtResource("11_0nkcf")
+
+[node name="DashTimer" type="Timer" parent="." index="16"]
+
+[node name="MoveTimer" type="Timer" parent="." index="17"]

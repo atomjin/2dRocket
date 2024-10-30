@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://menus/menu.gd" id="1_bbvqe"]
 [ext_resource type="PackedScene" uid="uid://rihp6tgckgbj" path="res://effects/space_background.tscn" id="1_iq6pp"]
+[ext_resource type="VideoStream" path="res://assets/smallloading.ogv" id="2_5nxk3"]
 [ext_resource type="LabelSettings" uid="uid://bss4kg26uk73w" path="res://fonts/title_label_settings.tres" id="2_jgovi"]
-[ext_resource type="VideoStream" path="res://assets/MenuLoading.ogv" id="2_p6o2j"]
 [ext_resource type="LabelSettings" uid="uid://c1omw1b4dnja8" path="res://fonts/default_label_settings.tres" id="3_b4l27"]
 
 [node name="Menu" type="Control"]
@@ -17,10 +17,10 @@ script = ExtResource("1_bbvqe")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_mode = 0
-offset_top = 8.0
+offset_top = -8.0
 offset_right = 1920.0
-offset_bottom = 1160.0
-stream = ExtResource("2_p6o2j")
+offset_bottom = 1080.0
+stream = ExtResource("2_5nxk3")
 autoplay = true
 loop = true
 
