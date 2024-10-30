@@ -4,6 +4,7 @@ extends Node
 
 # Create the health variable with a setter
 @export var health: float = 4.00:
+
 	set(value):
 		health = value
 		# Emit the health_changed signal with the new health value
