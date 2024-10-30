@@ -44,10 +44,8 @@ scale = Vector2(21.3333, 31.3333)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
 position = Vector2(13.3333, 13.3333)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_w37us")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
 position = Vector2(6.66668, 16.6667)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_svspf")
