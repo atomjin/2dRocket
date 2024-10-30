@@ -49,6 +49,7 @@ script = ExtResource("7_gxfep")
 [node name="HitboxComponent" type="Area2D" parent="."]
 collision_layer = 0
 script = ExtResource("8_uw0kx")
+damage = 1.0
 
 [node name="HurtComponent" type="Node" parent="." node_paths=PackedStringArray("stats_component", "hurtbox_component")]
 script = ExtResource("9_w7y8x")

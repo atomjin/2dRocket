@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://brsrs8yq60dwa" path="res://game_stats.tres" id="2_okums"]
 [ext_resource type="PackedScene" uid="uid://uf1l66y51p4t" path="res://enemies/enemy_generator.tscn" id="3_hi8w8"]
 [ext_resource type="LabelSettings" uid="uid://c1omw1b4dnja8" path="res://fonts/default_label_settings.tres" id="5_wiio1"]
-[ext_resource type="PackedScene" uid="uid://cuuldikjsr5lo" path="res://pause_menu.tscn" id="7_ec2nw"]
+[ext_resource type="PackedScene" uid="uid://rlbcewmipc8y" path="res://pause_menu.tscn" id="7_ec2nw"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_74ca3")

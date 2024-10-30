@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0jugqljbeqa8"]
+[gd_scene load_steps=6 format=3 uid="uid://hk6brtxj8347"]
 
 [ext_resource type="Script" path="res://player_ship/health.gd" id="1_aotq3"]
 [ext_resource type="Texture2D" uid="uid://pvd525or2y32" path="res://Level Selector-20241027T133937Z-001/Level Selector/StarBlank.png" id="1_jj6ei"]

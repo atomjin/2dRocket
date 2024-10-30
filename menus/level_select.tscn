@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8of6fhh62cbc"]
+[gd_scene load_steps=4 format=3 uid="uid://cjgtfly4qnwuu"]
 
 [ext_resource type="PackedScene" uid="uid://bc7msraepqfum" path="res://effects/stage_background.tscn" id="1_l01n1"]
 [ext_resource type="Texture2D" uid="uid://c52ayyiqe8a7s" path="res://assets/Bunny.png" id="2_4yd3f"]
