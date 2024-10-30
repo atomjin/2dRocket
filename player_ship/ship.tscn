@@ -124,12 +124,12 @@ animations = [{
 }]
 
 [node name="Ship" type="Node2D"]
+position = Vector2(1010, 938)
 scale = Vector2(2.1, 2.1)
 script = ExtResource("1_b87xd")
 
 [node name="StatsComponent" type="Node" parent="."]
 script = ExtResource("2_0kaw5")
-health = 3
 
 [node name="Anchor" type="Node2D" parent="."]
 
@@ -177,6 +177,7 @@ script = ExtResource("7_i8bhu")
 scene = ExtResource("8_pm86s")
 
 [node name="FireRateTimer" type="Timer" parent="."]
+wait_time = 0.8
 autostart = true
 
 [node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]

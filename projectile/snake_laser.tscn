@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6y8fffkus3wn"]
+
+[ext_resource type="Texture2D" uid="uid://doaa51fd1ttu3" path="res://assets/snake/Snake_Attack_Lasor.png" id="1_l30ji"]
+[ext_resource type="Script" path="res://components/hitbox_component.gd" id="2_lsfyg"]
+
+[sub_resource type="GDScript" id="GDScript_3d33c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iy0vu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_l30ji")
+}],
+"loop": true,
+"name": &"activate",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12pi3"]
+size = Vector2(112, 884)
+
+[node name="SnakeLaser" type="Node2D"]
+visibility_layer = 2
+position = Vector2(815, 335)
+script = SubResource("GDScript_3d33c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visibility_layer = 2
+position = Vector2(1, 1)
+scale = Vector2(0.634185, 1)
+sprite_frames = SubResource("SpriteFrames_iy0vu")
+animation = &"activate"
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+light_mask = 0
+visibility_layer = 2
+script = ExtResource("2_lsfyg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+visibility_layer = 2
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_12pi3")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+visibility_layer = 2
+position = Vector2(0.999985, 8.99998)
+scale = Vector2(6.4, 45.8)

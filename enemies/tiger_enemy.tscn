@@ -1,0 +1,95 @@
+[gd_scene load_steps=14 format=3 uid="uid://bpn60ckf46cbe"]
+
+[ext_resource type="PackedScene" uid="uid://c3cpm0goxpepr" path="res://enemies/enemy.tscn" id="1_1y8f3"]
+[ext_resource type="Texture2D" uid="uid://k608lih1rddx" path="res://assets/tiger/Mons_Tiger_Frame01.png" id="2_cmcx6"]
+[ext_resource type="Script" path="res://enemies/tiger_enemy.gd" id="2_t8jkp"]
+[ext_resource type="Texture2D" uid="uid://c5ka365rv3w60" path="res://assets/tiger/Mons_Tiger_Frame02.png" id="3_sn8gt"]
+[ext_resource type="Script" path="res://components/state_component.gd" id="5_u2hfu"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="6_k8pqw"]
+[ext_resource type="Script" path="res://components/border_bounce_component.gd" id="7_8xl3n"]
+[ext_resource type="Script" path="res://components/timed_state_componoent.gd" id="8_kbw68"]
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="9_hmr03"]
+[ext_resource type="PackedScene" uid="uid://ctq2eyc5m0aqf" path="res://projectile/tiger_enemy_projectile.tscn" id="10_0kaja"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pj8kl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sn8gt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cmcx6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_efagq"]
+radius = 225.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4wlfg"]
+radius = 180.069
+
+[node name="TigerEnemy" instance=ExtResource("1_1y8f3")]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("2_t8jkp")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_pj8kl")
+autoplay = "default"
+
+[node name="StatsComponent" parent="." index="1"]
+health = 5
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="3"]
+position = Vector2(-3.05176e-05, -40)
+scale = Vector2(24, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+position = Vector2(0, -40)
+shape = SubResource("CircleShape2D_efagq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+position = Vector2(5, -30)
+shape = SubResource("CircleShape2D_4wlfg")
+
+[node name="States" type="Node" parent="." index="13"]
+
+[node name="MoveState" type="Node" parent="States" index="0"]
+unique_name_in_owner = true
+script = ExtResource("8_kbw68")
+duration = 2.0
+
+[node name="MoveComponent" type="Node" parent="States/MoveState" index="0" node_paths=PackedStringArray("actor")]
+script = ExtResource("6_k8pqw")
+actor = NodePath("../../..")
+
+[node name="MoveSideState" type="Node" parent="States" index="1"]
+unique_name_in_owner = true
+script = ExtResource("8_kbw68")
+duration = 3.0
+
+[node name="MoveSideComponent" type="Node" parent="States/MoveSideState" index="0" node_paths=PackedStringArray("actor")]
+unique_name_in_owner = true
+script = ExtResource("6_k8pqw")
+actor = NodePath("../../..")
+velocity = Vector2(20, 0)
+
+[node name="BorderBounceComponent" type="Node" parent="States/MoveSideState" index="1" node_paths=PackedStringArray("actor", "move_component")]
+script = ExtResource("7_8xl3n")
+actor = NodePath("../../..")
+move_component = NodePath("../MoveSideComponent")
+
+[node name="FireState" type="Node" parent="States" index="2"]
+script = ExtResource("5_u2hfu")
+
+[node name="ProjectileSpawnerComponent" type="Node2D" parent="States/FireState" index="0"]
+unique_name_in_owner = true
+script = ExtResource("9_hmr03")
+scene = ExtResource("10_0kaja")
+
+[node name="PauseState" type="Node" parent="States" index="3"]
+unique_name_in_owner = true
+script = ExtResource("8_kbw68")
+duration = 3.0
