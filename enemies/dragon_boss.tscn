@@ -1,0 +1,85 @@
+[gd_scene load_steps=12 format=3 uid="uid://b1lojbg68e3sb"]
+
+[ext_resource type="PackedScene" uid="uid://c3cpm0goxpepr" path="res://enemies/enemy.tscn" id="1_xf6pb"]
+[ext_resource type="Texture2D" uid="uid://deagjvem0nt8o" path="res://assets/boss/dragon/attack/Dragon_Attack_Frame01.png" id="2_50pf7"]
+[ext_resource type="Script" path="res://enemies/dragon_boss.gd" id="2_nehe2"]
+[ext_resource type="Texture2D" uid="uid://bj7f7yua2alll" path="res://assets/boss/dragon/attack/Dragon_Attack_Frame02.png" id="3_1bi7x"]
+[ext_resource type="Texture2D" uid="uid://d0vsmucbqy8n8" path="res://assets/boss/dragon/attack/Dragon_Attack_Frame03.png" id="4_mmvlq"]
+[ext_resource type="Texture2D" uid="uid://253q5yo178xg" path="res://assets/boss/dragon/default/Dragon_Default_Frame01.png" id="5_2tj81"]
+[ext_resource type="Texture2D" uid="uid://d2jyfqlgyijje" path="res://assets/boss/dragon/default/Dragon_Default_Frame02.png" id="6_dl66r"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="8_5j3a4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qrhqg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_50pf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1bi7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mmvlq")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_2tj81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dl66r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxmql"]
+size = Vector2(520, 624)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgjf4"]
+size = Vector2(472, 528)
+
+[node name="DragonBoss" instance=ExtResource("1_xf6pb")]
+position = Vector2(1000, 88)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("2_nehe2")
+move_speed = 100.0
+dash_speed = 500.0
+dash_duration = 0.5
+return_duration = 0.5
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(-16, 16)
+sprite_frames = SubResource("SpriteFrames_qrhqg")
+autoplay = "default"
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="3"]
+position = Vector2(8.00006, 0)
+scale = Vector2(28.8, 33.2)
+
+[node name="HurtboxComponent" parent="." index="7"]
+position = Vector2(8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_uxmql")
+
+[node name="HitboxComponent" parent="." index="8"]
+position = Vector2(0, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+position = Vector2(-4, -24)
+shape = SubResource("RectangleShape2D_bgjf4")
+
+[node name="SpawnerComponent" parent="." index="10"]
+position = Vector2(0, -8)
+
+[node name="DashTimer" type="Timer" parent="." index="13"]
+
+[node name="MoveComponent2" type="Node" parent="." index="14" node_paths=PackedStringArray("actor")]
+script = ExtResource("8_5j3a4")
+actor = NodePath("..")

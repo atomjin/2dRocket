@@ -10,7 +10,7 @@ extends "res://enemies/enemy.gd"
 @onready var laser_spawner:  = %LaserSpawner
 @onready var animated_sprite_2d:  = $AnimatedSprite2D
 
-var laser_offset: Vector2 = Vector2(0, 350)  # Adjust the Y value as needed to place it below the boss
+var laser_offset: Vector2 = Vector2(0, 525)  # Adjust the Y value as needed to place it below the boss
 @export var laser_duration: float = 5.0  # Duration the laser stays visible
 @export var attack_delay: float = 1.0  # Duration before firing the laser after stopping
 
