@@ -34,7 +34,7 @@ autoplay = "move"
 frame_progress = 0.158142
 
 [node name="StatsComponent" parent="." index="1"]
-health = 15
+health = 30
 
 [node name="MoveComponent" parent="." index="2"]
 velocity = Vector2(0, 300)

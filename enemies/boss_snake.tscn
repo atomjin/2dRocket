@@ -66,7 +66,7 @@ animation = &"attack"
 autoplay = "default"
 
 [node name="StatsComponent" parent="." index="1"]
-health = 75
+health = 150
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="3"]
 position = Vector2(1.04904e-05, -104)

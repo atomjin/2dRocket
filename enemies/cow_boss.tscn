@@ -56,7 +56,7 @@ animation = &"dash"
 autoplay = "default"
 
 [node name="StatsComponent" parent="." index="1"]
-health = 75
+health = 375
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="3"]
 position = Vector2(-8, -8)

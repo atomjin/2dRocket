@@ -57,7 +57,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		pause_menu_toggle()
 		
-	if not calling_boss_snake and current_score >= 2000:
+	if not calling_boss_snake and current_score >= 4000:
 		spawn_boss()
 		calling_boss_snake = true
 		print("BossCow instantiated!")

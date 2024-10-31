@@ -9,7 +9,8 @@ extends Node2D
 @onready var enemy_generator: Node2D = $EnemyGenerator
 @onready var laser_hitbox: LaserHitbox = $Ship/LaserHitbox
 
-
+@onready var BOSS_SNAKE: PackedScene = preload("res://enemies/boss_snake.tscn")
+@onready var victory_scene: PackedScene = preload("res://menus/victory.tscn")
 signal score_reached_2000
 
 "res://projectile/laser.tscn"
@@ -17,7 +18,10 @@ var game_over: bool = false
 var paused = false
 var current_score: int = 0  # Track the animated score
 var upgrade_applied: bool = false
-
+var calling_boss_snake: bool = false
+var first_star: bool = false
+var second_star: bool = false
+var third_star: bool = false
 
 func _ready() :
 	
@@ -44,10 +48,41 @@ func _process(delta: float) -> void:
 		print()
 	if Input.is_action_just_pressed("pause"):
 		pause_menu_toggle()
-
+		
+	if not calling_boss_snake and current_score >= 2500:
+		spawn_boss()
+		calling_boss_snake = true
+		print("BossCow instantiated!")
+	if not first_star and current_score >= 10000:
+		first_star = true
+		print("your score right now is 10,000 and you receive 1 star")
+	if not second_star and current_score >= 12000:
+		second_star = true
+		print("your score right now is 12,000 and you receive 1 star")
+	if not third_star and current_score >= 15000:
+		third_star = true
+		print("your score right now is 15,000 and you receive 1 star")
+		
+		
 	# Update the score label during animation
 	score_label.text = "Score: " + str(current_score)
+
+func spawn_boss():
+	var boss_snake_instance = BOSS_SNAKE.instantiate()  # Directly instantiate the scene
+	add_child(boss_snake_instance)
+	boss_snake_instance.position = Vector2(960, 200)
+	print("BossSnake instantiated!")
+	boss_snake_instance.boss_defeated.connect(on_boss_defeated)
 	
+func on_boss_defeated() -> void:
+	print("Victory! Boss defeated.")
+	await get_tree().create_timer(1.0).timeout
+	ship.hide()
+	Engine.time_scale = 0
+	get_tree().change_scene_to_file("res://menus/victory.tscn")
+	await get_tree().create_timer(1.5).timeout
+	score_label.hide()
+		
 
 func pause_menu_toggle() -> void:
 	if game_over:

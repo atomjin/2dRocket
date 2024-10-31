@@ -17,12 +17,13 @@ var laser_offset: Vector2 = Vector2(0, 525)
 @export var attack_delay: float = 1.0
 var health: int = 75
 var spawned_instances: Array[Node] = []
+signal boss_defeated
 
 func _ready() -> void:
 	super()
 
 	# Connect the no_health signal to call the destroy function
-	no_health.connect(destroy)
+	stats_component.no_health.connect(on_boss_defeated)
 	
 	# Disable all states initially
 	for child in state.get_children():
@@ -41,6 +42,9 @@ func _ready() -> void:
 	# Start with the initial movement state
 	move_state.enable()
 
+func on_boss_defeated() -> void:
+	emit_signal("boss_defeated")  # Notify main scene
+	queue_free()  # Destroy BossSnake instance
 func apply_damage(damage: int) -> void:
 	health -= damage
 	print("BossSnake health:", health)  # Debugging output

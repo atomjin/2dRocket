@@ -40,7 +40,7 @@ sprite_frames = SubResource("SpriteFrames_pj8kl")
 autoplay = "default"
 
 [node name="StatsComponent" parent="." index="1"]
-health = 15
+health = 60
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="3"]
 position = Vector2(-3.05176e-05, -40)
