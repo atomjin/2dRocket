@@ -1,24 +1,28 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtdocnkabksd"]
+[gd_scene load_steps=13 format=3 uid="uid://dtdocnkabksd"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_74ca3"]
 [ext_resource type="PackedScene" uid="uid://f84hwee52dqs" path="res://player_ship/ship.tscn" id="1_hcmak"]
-[ext_resource type="PackedScene" uid="uid://rihp6tgckgbj" path="res://effects/space_background.tscn" id="2_hxusw"]
 [ext_resource type="Resource" uid="uid://brsrs8yq60dwa" path="res://game_stats.tres" id="2_okums"]
 [ext_resource type="PackedScene" uid="uid://uf1l66y51p4t" path="res://enemies/enemy_generator.tscn" id="3_hi8w8"]
-[ext_resource type="LabelSettings" uid="uid://c1omw1b4dnja8" path="res://fonts/default_label_settings.tres" id="5_wiio1"]
+[ext_resource type="PackedScene" uid="uid://j0mhf28t2m50" path="res://stage/space_background.tscn" id="3_t2jaq"]
+[ext_resource type="FontFile" uid="uid://cpcwl1v1p567i" path="res://fonts/kenney_mini_square.ttf" id="5_21was"]
 [ext_resource type="PackedScene" uid="uid://rlbcewmipc8y" path="res://pause_menu.tscn" id="7_ec2nw"]
-
 [ext_resource type="Script" path="res://components/hitbox_component.gd" id="7_p7mwk"]
+[ext_resource type="PackedScene" uid="uid://cw8jh0ih8voql" path="res://enemies/boss_snake.tscn" id="9_ohnif"]
+[ext_resource type="AudioStream" uid="uid://clbqhivc3snnk" path="res://sounds/Game BGM.MP3" id="10_4qwvd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ls72w"]
+font = ExtResource("5_21was")
+font_size = 64
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddew2"]
 size = Vector2(4, 8)
-
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_74ca3")
 game_stats = ExtResource("2_okums")
 
-[node name="SpaceBackground" parent="." instance=ExtResource("2_hxusw")]
+[node name="SpaceBackground" parent="." instance=ExtResource("3_t2jaq")]
 
 [node name="EnemyGenerator" parent="." instance=ExtResource("3_hi8w8")]
 
@@ -26,7 +30,7 @@ game_stats = ExtResource("2_okums")
 offset_right = 1920.0
 offset_bottom = 40.0
 text = "score"
-label_settings = ExtResource("5_wiio1")
+label_settings = SubResource("LabelSettings_ls72w")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -49,3 +53,12 @@ offset_top = 544.0
 offset_right = 960.0
 offset_bottom = 544.0
 scale = Vector2(2.28, 2.28)
+
+[node name="BossSnake" parent="." instance=ExtResource("9_ohnif")]
+position = Vector2(1189, 242)
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_4qwvd")
+volume_db = -4.0
+autoplay = true
+parameters/looping = true

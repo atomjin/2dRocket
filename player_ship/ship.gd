@@ -9,7 +9,7 @@ extends Node2D
 @onready var flame_animated_sprite: AnimatedSprite2D= %FlameAnimatedSprite
 @onready var health: Control = $Health
 @onready var stats_component: StatsComponent = $StatsComponent
-
+@onready var shooting_audio: AudioStreamPlayer2D = $ShootingAudio
 
 
 
@@ -19,6 +19,7 @@ func _ready():
 	#health_node.set_stats_component(stats_component)
 		
 func fire_laser() -> void:
+	shooting_audio.play()
 	spawner_component.spawn(left_muzzle.global_position)
 	spawner_component.spawn(right_muzzle.global_position)
 	scale_component.tween_scale()

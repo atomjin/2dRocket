@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://j0mhf28t2m50"]
+
+[ext_resource type="Texture2D" uid="uid://p5oqfpbhn5an" path="res://assets/bg/BG_space.png" id="1_juuwk"]
+
+[node name="SpaceBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer"]
+offset_right = 1916.0
+offset_bottom = 1078.0
+texture = ExtResource("1_juuwk")
+expand_mode = 5
