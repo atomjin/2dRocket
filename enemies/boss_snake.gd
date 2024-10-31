@@ -60,7 +60,6 @@ func fire_laser() -> void:
 func start_laser_removal_timer(laser_instance):
 	await get_tree().create_timer(laser_duration).timeout
 	animated_sprite_2d.play("default")  # Change back to the default animation after attack
-	
 	# Remove the laser instance
 	if laser_instance:
 		laser_instance.queue_free()

@@ -8,7 +8,7 @@ extends Node2D
 @onready var new_scene_path: String = "res://stage_selecter.tscn"
 @onready var enemy_generator: Node2D = $EnemyGenerator
 @onready var laser_hitbox_2: LaserHitbox = $Ship/LaserHitbox2
-
+@onready var BOSS_SNAKE: String = "res://enemies/boss_snake.tscn"
 signal score_reached_2000
 
 "res://projectile/laser.tscn"
@@ -16,7 +16,7 @@ var game_over: bool = false
 var paused = false
 var current_score: int = 0  # Track the animated score
 var upgrade_applied: bool = false
-
+var calling_boss_snake: bool = false
 
 func _ready() :
 	
@@ -43,7 +43,14 @@ func _process(delta: float) -> void:
 		print()
 	if Input.is_action_just_pressed("pause"):
 		pause_menu_toggle()
-
+		
+	if not calling_boss_snake and current_score >= 2000:
+		var boss_snake_scene = load(BOSS_SNAKE)
+		var boss_snake_instance = boss_snake_scene.instantiate()
+		calling_boss_snake = true
+		add_child(boss_snake_instance)
+		boss_snake_instance.position = Vector2(960, 200)  # Adjust as needed
+		print("BossSnake instantiated!")
 	# Update the score label during animation
 	score_label.text = "Score: " + str(current_score)
 	

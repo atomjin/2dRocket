@@ -7,12 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://uf1l66y51p4t" path="res://enemies/enemy_generator.tscn" id="3_hi8w8"]
 [ext_resource type="LabelSettings" uid="uid://c1omw1b4dnja8" path="res://fonts/default_label_settings.tres" id="5_wiio1"]
 [ext_resource type="PackedScene" uid="uid://rlbcewmipc8y" path="res://pause_menu.tscn" id="7_ec2nw"]
-
 [ext_resource type="Script" path="res://components/hitbox_component.gd" id="7_p7mwk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddew2"]
 size = Vector2(4, 8)
-
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_74ca3")
