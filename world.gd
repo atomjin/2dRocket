@@ -8,7 +8,7 @@ extends Node2D
 @onready var new_scene_path: String = "res://stage_selecter.tscn"
 @onready var enemy_generator: Node2D = $EnemyGenerator
 @onready var laser_hitbox_2: LaserHitbox = $Ship/LaserHitbox2
-@onready var BOSS_SNAKE: String = "res://enemies/boss_snake.tscn"
+@export var BOSS_SNAKE: PackedScene 
 signal score_reached_2000
 
 "res://projectile/laser.tscn"
@@ -34,7 +34,10 @@ func _ready() :
 		await get_tree().create_timer(1.5).timeout
 		score_label.hide()
 	)
-	
+#	BOSS_SNAKE.tree_exiting.connect(func():
+#		pass
+		
+#	)
 		
 func _process(delta: float) -> void:
 	if not upgrade_applied and current_score >= 2000:
@@ -45,16 +48,19 @@ func _process(delta: float) -> void:
 		pause_menu_toggle()
 		
 	if not calling_boss_snake and current_score >= 2000:
-		var boss_snake_scene = load(BOSS_SNAKE)
-		var boss_snake_instance = boss_snake_scene.instantiate()
+		spawn_boss()
 		calling_boss_snake = true
-		add_child(boss_snake_instance)
-		boss_snake_instance.position = Vector2(960, 200)  # Adjust as needed
-		print("BossSnake instantiated!")
+		
+		  # Adjust as needed
+		
 	# Update the score label during animation
 	score_label.text = "Score: " + str(current_score)
-	
 
+func spawn_boss():
+	var boss_snake_instance = BOSS_SNAKE.instantiate()  # Directly instantiate the scene
+	add_child(boss_snake_instance)
+	boss_snake_instance.position = Vector2(960, 200)
+	print("BossSnake instantiated!")
 func pause_menu_toggle() -> void:
 	if game_over:
 		return

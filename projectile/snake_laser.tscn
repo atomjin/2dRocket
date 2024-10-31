@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6y8fffkus3wn"]
+[gd_scene load_steps=6 format=3 uid="uid://dfbcwt7cxvq8a"]
 
 [ext_resource type="Texture2D" uid="uid://doaa51fd1ttu3" path="res://assets/snake/Snake_Attack_Lasor.png" id="1_l30ji"]
 [ext_resource type="Script" path="res://components/hitbox_component.gd" id="2_lsfyg"]

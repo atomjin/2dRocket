@@ -1,14 +1,8 @@
-# Give the component a class name so it can be instanced as a custom node
 class_name SpawnerComponent
 extends Node2D
 
-# Export the dependencies for this component
-# The scene we want to spawn
 @export var scene: PackedScene
 
-# Spawn an instance of the scene at a specific global position on a parent
-# By default, the parent is the current "main" scene, but you can pass in
-# an alternative parent if you choose.
 func spawn(global_spawn_position: Vector2 = Vector2.ZERO, parent: Node = null) -> Node:
 	# Check if the scene has been set correctly
 	assert(scene is PackedScene, "Error: The scene export was never set on this spawner component.")
