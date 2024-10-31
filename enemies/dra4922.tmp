@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b8nh7l74510ma"]
+[gd_scene load_steps=12 format=3 uid="uid://b1lojbg68e3sb"]
 
 [ext_resource type="PackedScene" uid="uid://c3cpm0goxpepr" path="res://enemies/enemy.tscn" id="1_xf6pb"]
 [ext_resource type="Texture2D" uid="uid://deagjvem0nt8o" path="res://assets/boss/dragon/attack/Dragon_Attack_Frame01.png" id="2_50pf7"]
@@ -49,18 +49,13 @@ scale = Vector2(0.8, 0.8)
 script = ExtResource("2_nehe2")
 move_speed = 100.0
 dash_speed = 500.0
-dash_duration = 1.5
+dash_duration = 0.5
 return_duration = 0.5
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(-16, 16)
 sprite_frames = SubResource("SpriteFrames_qrhqg")
 autoplay = "default"
-
-[node name="StatsComponent" parent="." index="1"]
-
-health = 100
-
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="3"]
 position = Vector2(8.00006, 0)

@@ -1,0 +1,93 @@
+[gd_scene load_steps=14 format=3 uid="uid://ct1sloulyqmr8"]
+
+[ext_resource type="PackedScene" uid="uid://c3cpm0goxpepr" path="res://enemies/enemy.tscn" id="1_d7fub"]
+[ext_resource type="Script" path="res://enemies/rat_boss.gd" id="2_051lh"]
+[ext_resource type="Texture2D" uid="uid://cvtrmb4tughgl" path="res://assets/boss/rat/Rat_Attack/Rat_Attack_Frame01.png" id="2_cmc4u"]
+[ext_resource type="Texture2D" uid="uid://sscfjcagcg3s" path="res://assets/boss/rat/Rat_Attack/Rat_Attack_Frame02.png" id="3_07tpn"]
+[ext_resource type="Texture2D" uid="uid://bkti68cc2ebj1" path="res://assets/boss/rat/Rat_Default/Rat_Default_Frame01.png" id="4_p0vsc"]
+[ext_resource type="Texture2D" uid="uid://dgfenkb4upbtn" path="res://assets/boss/rat/Rat_Default/Rat_Default_Frame02.png" id="5_gt3ym"]
+[ext_resource type="Texture2D" uid="uid://b2lv62jauooif" path="res://assets/boss/rat/Rat_Muscular/Rat_Muscular_Frame01.png" id="6_fc3dj"]
+[ext_resource type="Texture2D" uid="uid://bhg2v1vy7fx5l" path="res://assets/boss/rat/Rat_Muscular/Rat_Muscular_Frame02.png" id="7_22skw"]
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="9_d6plx"]
+[ext_resource type="PackedScene" uid="uid://dolv26ksf5ecg" path="res://projectile/bunny_projectile.tscn" id="10_y24o0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x855e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cmc4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_07tpn")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_p0vsc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gt3ym")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_fc3dj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_22skw")
+}],
+"loop": true,
+"name": &"muscle",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1q06"]
+size = Vector2(408, 456)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ep0fv"]
+size = Vector2(312, 360)
+
+[node name="RatBoss" instance=ExtResource("1_d7fub")]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("2_051lh")
+move_speed = 100.0
+dash_speed = 300.0
+dash_duration = 1.5
+bullet_speed = 100.0
+bullet_angle_offset = 0.523599
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_x855e")
+animation = &"muscle"
+autoplay = "default"
+
+[node name="StatsComponent" parent="." index="1"]
+health = 20
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="3"]
+position = Vector2(24, 100)
+scale = Vector2(27.2, 34.8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+position = Vector2(12, 12)
+shape = SubResource("RectangleShape2D_i1q06")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+position = Vector2(12, -4)
+shape = SubResource("RectangleShape2D_ep0fv")
+
+[node name="AttackTimer" type="Timer" parent="." index="13"]
+
+[node name="DashTimer" type="Timer" parent="." index="14"]
+
+[node name="MoveTimer" type="Timer" parent="." index="15"]
+
+[node name="SpawnerComponent2" type="Node2D" parent="." index="16"]
+script = ExtResource("9_d6plx")
+scene = ExtResource("10_y24o0")

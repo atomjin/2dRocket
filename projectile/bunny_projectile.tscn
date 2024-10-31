@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://dolv26ksf5ecg"]
+
+[ext_resource type="Script" path="res://projectile/bunny_projectile.gd" id="1_cpcbn"]
+[ext_resource type="Texture2D" uid="uid://kcv57obylcwo" path="res://assets/pink_enemy_projectile.png" id="1_ta31h"]
+[ext_resource type="Script" path="res://components/hitbox_component.gd" id="2_c78ib"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="3_y2rnr"]
+[ext_resource type="Script" path="res://components/scale_component.gd" id="4_utr6o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgdcu"]
+atlas = ExtResource("1_ta31h")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4d6g"]
+atlas = ExtResource("1_ta31h")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxynf"]
+atlas = ExtResource("1_ta31h")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcsja"]
+atlas = ExtResource("1_ta31h")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ahvic"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgdcu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4d6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxynf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcsja")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3s2l2"]
+radius = 4.005
+
+[node name="BunnyProjectile" type="Node2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_cpcbn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ahvic")
+autoplay = "default"
+frame = 2
+frame_progress = 0.557642
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("2_c78ib")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_3s2l2")
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("3_y2rnr")
+actor = NodePath("..")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, 9.53674e-08)
+scale = Vector2(0.4, 0.4)
+
+[node name="ScaleComponent" type="Node" parent="."]
+script = ExtResource("4_utr6o")
