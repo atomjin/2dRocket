@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bao4qh4jbg4lw" path="res://assets/boss/cow/Cow_Default/Cow_Default_Frame02.png" id="5_mon57"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="7_k055s"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="8_vmnmi"]
-[ext_resource type="PackedScene" uid="uid://dolv26ksf5ecg" path="res://projectile/bunny_projectile.tscn" id="9_cev2c"]
+[ext_resource type="PackedScene" path="res://projectile/bunny_projectile.tscn" id="9_cev2c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x6wog"]
 animations = [{
@@ -66,6 +66,9 @@ scale = Vector2(31.2, 31.2)
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_q87fm")
 
+[node name="ScoreComponent" parent="." index="11"]
+adjust_amount = 10000
+
 [node name="MoveComponent2" type="Node" parent="." index="12" node_paths=PackedStringArray("actor")]
 script = ExtResource("7_k055s")
 actor = NodePath("..")
@@ -82,5 +85,4 @@ scene = ExtResource("9_cev2c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LaserHitbox" index="0"]
 position = Vector2(1.07144, -7.14287)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_s823j")

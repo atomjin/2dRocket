@@ -3,6 +3,7 @@ extends Node2D
 @export var GreenEnemyScene: PackedScene
 @export var TigerEnemyScene: PackedScene
 @export var SheepEnemyScene: PackedScene
+@export var player: Node2D
 
 var margin = 8
 var screen_width = ProjectSettings.get_setting("display/window/size/viewport_width")
@@ -18,6 +19,10 @@ var is_generating: bool = true
 func _ready() -> void:
 	if is_generating:
 		generate_enemy()
+		
+	green_enemy_spawn_timer.start()
+	tiger_enemy_spawn_timer.start()
+	sheep_enemy_spawn_timer.start()
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
@@ -47,23 +52,25 @@ func disconnect_spawns():
 func spawn_green_enemies() -> void:
 	var num_enemies = randi_range(1, 10)
 	spawner_component.scene = GreenEnemyScene  # Set scene to green enemy
-	print("Spawning", num_enemies, "green enemies")  # Debug print
+	#print("Spawning", num_enemies, "green enemies")  # Debug print
 	for i in range(num_enemies):
 		spawner_component.spawn(Vector2(randf_range(margin, screen_width - margin), -16))
 	green_enemy_spawn_timer.start()
 
 func spawn_tiger_enemy() -> void:
 	spawner_component.scene = TigerEnemyScene  # Set scene to tiger enemy
-	print("Spawning 1 tiger enemy")  # Debug print
-	spawner_component.spawn(Vector2(randf_range(margin, screen_width - margin), -16))
+	#print("Spawning 1 tiger enemy")  # Debug print
+	spawner_component.spawn(Vector2(randf_range(margin, screen_width - margin), 220))
 	tiger_enemy_spawn_timer.start()
 
 func spawn_sheep_enemies() -> void:
 	var num_enemies = randi_range(1, 2)
 	spawner_component.scene = SheepEnemyScene  # Set scene to sheep enemy
-	print("Spawning", num_enemies, "sheep enemies")  # Debug print
+	#print("Spawning", num_enemies, "sheep enemies")  # Debug print
 	for i in range(num_enemies):
-		spawner_component.spawn(Vector2(randf_range(margin, screen_width - margin), -16))
+		var sheep_instance = spawner_component.spawn(Vector2(randf_range(margin, screen_width - margin), -16))
+		if sheep_instance.has_method("set_player"):
+			sheep_instance.set_player(player)
 	sheep_enemy_spawn_timer.start()
 
 

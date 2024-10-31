@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://components/border_bounce_component.gd" id="7_8xl3n"]
 [ext_resource type="Script" path="res://components/timed_state_componoent.gd" id="8_kbw68"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="9_hmr03"]
-[ext_resource type="PackedScene" uid="uid://ctq2eyc5m0aqf" path="res://projectile/tiger_enemy_projectile.tscn" id="10_0kaja"]
+[ext_resource type="PackedScene" path="res://projectile/tiger_enemy_projectile.tscn" id="10_0kaja"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pj8kl"]
 animations = [{
@@ -40,7 +40,7 @@ sprite_frames = SubResource("SpriteFrames_pj8kl")
 autoplay = "default"
 
 [node name="StatsComponent" parent="." index="1"]
-health = 5
+health = 15
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="3"]
 position = Vector2(-3.05176e-05, -40)

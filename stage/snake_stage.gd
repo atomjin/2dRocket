@@ -7,7 +7,8 @@ extends Node2D
 @onready var pause_menu: Control = $PauseMenu
 @onready var new_scene_path: String = "res://stage_selecter.tscn"
 @onready var enemy_generator: Node2D = $EnemyGenerator
-@onready var laser_hitbox_2: LaserHitbox = $Ship/LaserHitbox2
+@onready var laser_hitbox: LaserHitbox = $Ship/LaserHitbox
+
 
 signal score_reached_2000
 
@@ -25,7 +26,7 @@ func _ready() :
 	Engine.time_scale = 1
 	update_score_label(game_stats.score)  # Initialize the score label
 	game_stats.score_changed.connect(animate_score)  # Connect score updates
-	score_reached_2000.connect(laser_hitbox_2.increase_damage)
+	score_reached_2000.connect(laser_hitbox.increase_damage)
 		
 	ship.tree_exiting.connect(func():
 		game_over = true

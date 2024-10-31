@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2a5oa4imgi4m"]
+
+[ext_resource type="PackedScene" uid="uid://rihp6tgckgbj" path="res://effects/space_background.tscn" id="1_ey60u"]
+[ext_resource type="Script" path="res://menus/victory.gd" id="1_mj3mw"]
+[ext_resource type="LabelSettings" uid="uid://bss4kg26uk73w" path="res://fonts/title_label_settings.tres" id="2_0ffma"]
+[ext_resource type="LabelSettings" uid="uid://c1omw1b4dnja8" path="res://fonts/default_label_settings.tres" id="3_lv6kk"]
+
+[node name="Victory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mj3mw")
+
+[node name="SpaceBackground" parent="." instance=ExtResource("1_ey60u")]
+visible = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="GameOverLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Victory!!!"
+label_settings = ExtResource("2_0ffma")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Press 'space' to Return 
+to the Start Menu"
+label_settings = ExtResource("3_lv6kk")
+horizontal_alignment = 1
+vertical_alignment = 1

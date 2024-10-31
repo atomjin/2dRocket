@@ -1,15 +1,16 @@
 extends Control
 
+@onready var cow_stage: Node2D = $".." as Node2D
 
 @onready var world: Node2D = $".." as Node2D
 @onready var new_scene_path: String = "res://stage_selector.tscn"
 
 func _on_resume_pressed() -> void:
-	world.pause_menu_toggle()
+	cow_stage.pause_menu_toggle()
 
 
 func _on_quit_pressed() -> void:
-	if world.game_over:
+	if cow_stage.game_over:
 		change_scene("res://menus/main_menu.tscn")
 	else:
 		change_scene()

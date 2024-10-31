@@ -4,7 +4,7 @@ extends "res://enemies/enemy.gd"
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var player:Node2D
-@export var move_speed: float = 100
+@export var move_speed: float = 300
 
 var moving_to_player: bool = false
 

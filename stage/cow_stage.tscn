@@ -1,0 +1,66 @@
+[gd_scene load_steps=13 format=3 uid="uid://bc56w73qhmusw"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_ksq1y"]
+[ext_resource type="PackedScene" uid="uid://j0mhf28t2m50" path="res://stage/space_background.tscn" id="2_cv3lh"]
+[ext_resource type="Resource" uid="uid://brsrs8yq60dwa" path="res://game_stats.tres" id="2_kaysh"]
+[ext_resource type="FontFile" uid="uid://cpcwl1v1p567i" path="res://fonts/kenney_mini_square.ttf" id="4_y4nof"]
+[ext_resource type="PackedScene" uid="uid://f84hwee52dqs" path="res://player_ship/ship.tscn" id="5_1de6r"]
+[ext_resource type="PackedScene" uid="uid://jnp0a0eygt8m" path="res://enemies/cow_stage_generator.tscn" id="5_58wru"]
+[ext_resource type="Script" path="res://components/hitbox_component.gd" id="6_w7hin"]
+[ext_resource type="PackedScene" uid="uid://rlbcewmipc8y" path="res://pause_menu.tscn" id="7_vlpn5"]
+[ext_resource type="AudioStream" uid="uid://clbqhivc3snnk" path="res://sounds/Game BGM.MP3" id="8_wo0nj"]
+[ext_resource type="PackedScene" uid="uid://cbxyr7suekb3y" path="res://stage/plainyeehee.tscn" id="11_k8y8a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_65cdo"]
+font = ExtResource("4_y4nof")
+font_size = 64
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_auc0e"]
+size = Vector2(5.23816, 10.7738)
+
+[node name="CowStage" type="Node2D"]
+script = ExtResource("1_ksq1y")
+game_stats = ExtResource("2_kaysh")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_right = 1920.0
+offset_bottom = 80.0
+text = "score"
+label_settings = SubResource("LabelSettings_65cdo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CowStageGenerator" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_58wru")]
+player = NodePath("../Plainyeehee")
+
+[node name="SpaceBackground" parent="." instance=ExtResource("2_cv3lh")]
+
+[node name="Ship" parent="." instance=ExtResource("5_1de6r")]
+
+[node name="LaserHitbox" type="Area2D" parent="Ship"]
+script = ExtResource("6_w7hin")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/LaserHitbox"]
+position = Vector2(0, 5.72205e-06)
+shape = SubResource("RectangleShape2D_auc0e")
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_vlpn5")]
+visible = false
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 974.0
+offset_top = 512.0
+offset_right = 974.0
+offset_bottom = 512.0
+scale = Vector2(2.8, 2.8)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_wo0nj")
+volume_db = -4.0
+autoplay = true
+parameters/looping = true
+
+[node name="Plainyeehee" parent="." instance=ExtResource("11_k8y8a")]
+position = Vector2(1010, 1220)

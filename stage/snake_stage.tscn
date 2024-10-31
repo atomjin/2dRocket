@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b6rqseq4ucw1a" path="res://stage/woods_background.tscn" id="1_1ptlt"]
 [ext_resource type="Script" path="res://stage/snake_stage.gd" id="1_7io6c"]
-[ext_resource type="Script" path="res://game_stats.gd" id="2_c7knt"]
+[ext_resource type="Resource" uid="uid://brsrs8yq60dwa" path="res://game_stats.tres" id="2_2edyy"]
 [ext_resource type="PackedScene" uid="uid://uf1l66y51p4t" path="res://enemies/enemy_generator.tscn" id="2_s3hyi"]
 [ext_resource type="PackedScene" uid="uid://f84hwee52dqs" path="res://player_ship/ship.tscn" id="3_00bh6"]
 [ext_resource type="FontFile" uid="uid://cpcwl1v1p567i" path="res://fonts/kenney_mini_square.ttf" id="4_0xysd"]
@@ -20,7 +20,7 @@ size = Vector2(5.23816, 10.7738)
 
 [node name="SnakeStage" type="Node2D"]
 script = ExtResource("1_7io6c")
-game_stats = ExtResource("2_c7knt")
+game_stats = ExtResource("2_2edyy")
 
 [node name="WoodsBackground" parent="." instance=ExtResource("1_1ptlt")]
 

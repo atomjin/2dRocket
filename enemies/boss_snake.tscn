@@ -8,9 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cpwhhceltospe" path="res://assets/boss/snake/Snake_Default_Frame03.png" id="4_0vap2"]
 [ext_resource type="Script" path="res://components/border_bounce_component.gd" id="6_5nt1x"]
 [ext_resource type="Script" path="res://components/state_component.gd" id="8_3i8oq"]
-
 [ext_resource type="PackedScene" uid="uid://dfbcwt7cxvq8a" path="res://projectile/snake_laser.tscn" id="8_8g8p5"]
-
 [ext_resource type="Script" path="res://components/timed_state_componoent.gd" id="9_j3xym"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="10_18neo"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="11_713iw"]

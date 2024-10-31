@@ -17,16 +17,17 @@ var target_x_position: float  # Random x target for horizontal movement
 
 enum State { IDLE, PREPARE_ATTACK, ATTACK, PREPARE_DASH, DASH, RETURN }
 var current_state: State = State.IDLE
-
+var cow_stay: bool = true
 # Screen boundaries
 var screen_width = ProjectSettings.get_setting("display/window/size/viewport_width")
 var screen_margin = 16  # Margin from screen edge
 
+signal boss_defeated
 func _ready() -> void:
 	super()
 	original_position = Vector2(960, 200)   # Save the starting position
 	pick_new_x_target()  # Pick a random x target within bounds
-
+	stats_component.no_health.connect(on_boss_defeated)
 	# Timer connections
 	attack_timer.timeout.connect(decide_action)
 	attack_timer.start(3.0)  # Set interval to decide between shooting and dashing
@@ -39,6 +40,10 @@ func _process(delta: float) -> void:
 			dash_diagonal(delta)
 		State.RETURN:
 			return_to_position(delta)
+func on_boss_defeated() -> void:
+	emit_signal("boss_defeated")  # Notify main scene
+	queue_free()  # Destroy BossSnake instance
+
 
 # Decide randomly between shooting and dashing
 func decide_action() -> void:

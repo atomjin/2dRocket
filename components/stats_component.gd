@@ -10,7 +10,7 @@ extends Node
 		health = value
 		# Emit the health_changed signal with the new health value
 		health_changed.emit(health)   
-		if health == 0:
+		if health <= 0:
 			no_health.emit()
 			
 func _ready():
