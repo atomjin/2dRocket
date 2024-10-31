@@ -28,8 +28,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_efagq"]
 radius = 225.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4wlfg"]
-radius = 180.069
+[sub_resource type="CircleShape2D" id="CircleShape2D_ofn2s"]
+radius = 165.0
 
 [node name="TigerEnemy" instance=ExtResource("1_1y8f3")]
 scale = Vector2(0.2, 0.2)
@@ -50,11 +50,7 @@ scale = Vector2(24, 24)
 position = Vector2(0, -40)
 shape = SubResource("CircleShape2D_efagq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
-position = Vector2(5, -30)
-shape = SubResource("CircleShape2D_4wlfg")
-
-[node name="States" type="Node" parent="." index="13"]
+[node name="States" type="Node" parent="." index="12"]
 
 [node name="MoveState" type="Node" parent="States" index="0"]
 unique_name_in_owner = true
@@ -93,3 +89,7 @@ scene = ExtResource("10_0kaja")
 unique_name_in_owner = true
 script = ExtResource("8_kbw68")
 duration = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaserHitbox" index="0"]
+position = Vector2(-9.53674e-07, -45)
+shape = SubResource("CircleShape2D_ofn2s")

@@ -8,7 +8,7 @@ extends Node2D
 @onready var new_scene_path: String = "res://stage_selecter.tscn"
 @onready var enemy_generator: Node2D = $EnemyGenerator
 @onready var laser_hitbox_2: LaserHitbox = $Ship/LaserHitbox2
-@onready var BOSS_SNAKE: String = "res://enemies/boss_snake.tscn"
+@onready var BOSS_SNAKE: String = "res://enemies/cow_boss.tscn"
 signal score_reached_2000
 
 "res://projectile/laser.tscn"
@@ -50,7 +50,7 @@ func _process(delta: float) -> void:
 		calling_boss_snake = true
 		add_child(boss_snake_instance)
 		boss_snake_instance.position = Vector2(960, 200)  # Adjust as needed
-		print("BossSnake instantiated!")
+		print("BossCow instantiated!")
 	# Update the score label during animation
 	score_label.text = "Score: " + str(current_score)
 	
