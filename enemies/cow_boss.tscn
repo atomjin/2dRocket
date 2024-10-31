@@ -38,8 +38,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q87fm"]
 size = Vector2(544, 560)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6upju"]
-size = Vector2(464, 504)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s823j"]
+size = Vector2(563.571, 580)
 
 [node name="CowBoss" instance=ExtResource("1_bnou3")]
 scale = Vector2(0.35, 0.35)
@@ -55,6 +55,9 @@ sprite_frames = SubResource("SpriteFrames_x6wog")
 animation = &"dash"
 autoplay = "default"
 
+[node name="StatsComponent" parent="." index="1"]
+health = 75
+
 [node name="VisibleOnScreenNotifier2D" parent="." index="3"]
 position = Vector2(-8, -8)
 scale = Vector2(31.2, 31.2)
@@ -63,20 +66,21 @@ scale = Vector2(31.2, 31.2)
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_q87fm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
-position = Vector2(0, -16)
-shape = SubResource("RectangleShape2D_6upju")
-
-[node name="MoveComponent2" type="Node" parent="." index="13" node_paths=PackedStringArray("actor")]
+[node name="MoveComponent2" type="Node" parent="." index="12" node_paths=PackedStringArray("actor")]
 script = ExtResource("7_k055s")
 actor = NodePath("..")
 
-[node name="AttackTimer" type="Timer" parent="." index="14"]
+[node name="AttackTimer" type="Timer" parent="." index="13"]
 
-[node name="SpawnerComponent2" type="Node2D" parent="." index="15"]
+[node name="SpawnerComponent2" type="Node2D" parent="." index="14"]
 script = ExtResource("8_vmnmi")
 scene = ExtResource("9_cev2c")
 
-[node name="DashTimer" type="Timer" parent="." index="16"]
+[node name="DashTimer" type="Timer" parent="." index="15"]
 
-[node name="MoveTimer" type="Timer" parent="." index="17"]
+[node name="MoveTimer" type="Timer" parent="." index="16"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaserHitbox" index="0"]
+position = Vector2(1.07144, -7.14287)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_s823j")

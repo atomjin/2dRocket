@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cfmeci2s8yhth"]
+[gd_scene load_steps=17 format=3 uid="uid://cfmeci2s8yhth"]
 
 [ext_resource type="PackedScene" uid="uid://bc7msraepqfum" path="res://effects/stage_background.tscn" id="1_hhp03"]
 [ext_resource type="Script" path="res://stage_selector.gd" id="1_pkf56"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://cepg0bqd1tkop" path="res://Level Selector/Tiger.png" id="12_p1gi8"]
 [ext_resource type="Texture2D" uid="uid://sagnf7wftyx" path="res://Level Selector/Cow.png" id="13_de371"]
 [ext_resource type="Texture2D" uid="uid://btmkb3q7ow3l" path="res://Level Selector/Rat.png" id="14_ap5m1"]
+[ext_resource type="Script" path="res://cow_stage.gd" id="14_ii7sd"]
+[ext_resource type="AudioStream" uid="uid://dhvhr23lilq33" path="res://sounds/MainMenu BGM.mp3" id="15_ee2bi"]
 
 [node name="StageSelector" type="Control"]
 layout_mode = 3
@@ -447,9 +449,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("13_de371")
 expand_mode = 1
+script = ExtResource("14_ii7sd")
 
 [node name="BlankStar" type="TextureRect" parent="CowStage"]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -517,6 +519,7 @@ texture = ExtResource("8_ulm7s")
 expand_mode = 1
 
 [node name="Fog1" type="TextureRect" parent="CowStage"]
+visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -635,5 +638,12 @@ grow_vertical = 2
 texture = ExtResource("9_5hfxo")
 expand_mode = 1
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_ee2bi")
+autoplay = true
+parameters/looping = true
+
 [connection signal="mouse_entered" from="SnakeStage" to="SnakeStage" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SnakeStage" to="SnakeStage" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="CowStage" to="CowStage" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CowStage" to="CowStage" method="_on_mouse_exited"]

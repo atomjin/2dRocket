@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c6mvbulaujak4"
+path="res://.godot/imported/Laser Gun Shot fast.wav-d5db9d980492681ffc748a4842b1aedf.sample"
+
+[deps]
+
+source_file="res://sounds/Laser Gun Shot fast.wav"
+dest_files=["res://.godot/imported/Laser Gun Shot fast.wav-d5db9d980492681ffc748a4842b1aedf.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,53 @@
+[gd_scene load_steps=12 format=3 uid="uid://xmlxewvs0x8e"]
+
+[ext_resource type="PackedScene" uid="uid://b6rqseq4ucw1a" path="res://stage/woods_background.tscn" id="1_1ptlt"]
+[ext_resource type="Script" path="res://stage/snake_stage.gd" id="1_7io6c"]
+[ext_resource type="Script" path="res://game_stats.gd" id="2_c7knt"]
+[ext_resource type="PackedScene" uid="uid://uf1l66y51p4t" path="res://enemies/enemy_generator.tscn" id="2_s3hyi"]
+[ext_resource type="PackedScene" uid="uid://f84hwee52dqs" path="res://player_ship/ship.tscn" id="3_00bh6"]
+[ext_resource type="FontFile" uid="uid://cpcwl1v1p567i" path="res://fonts/kenney_mini_square.ttf" id="4_0xysd"]
+[ext_resource type="Script" path="res://components/hitbox_component.gd" id="4_mrydc"]
+[ext_resource type="PackedScene" uid="uid://rlbcewmipc8y" path="res://pause_menu.tscn" id="5_ubxka"]
+[ext_resource type="AudioStream" uid="uid://clbqhivc3snnk" path="res://sounds/Game BGM.MP3" id="6_ye1hs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_btqtj"]
+font = ExtResource("4_0xysd")
+font_size = 64
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuad0"]
+size = Vector2(5.23816, 10.7738)
+
+[node name="SnakeStage" type="Node2D"]
+script = ExtResource("1_7io6c")
+game_stats = ExtResource("2_c7knt")
+
+[node name="WoodsBackground" parent="." instance=ExtResource("1_1ptlt")]
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_right = 1920.0
+offset_bottom = 80.0
+text = "score"
+label_settings = SubResource("LabelSettings_btqtj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnemyGenerator" parent="." instance=ExtResource("2_s3hyi")]
+
+[node name="Ship" parent="." instance=ExtResource("3_00bh6")]
+
+[node name="LaserHitbox" type="Area2D" parent="Ship"]
+script = ExtResource("4_mrydc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/LaserHitbox"]
+position = Vector2(0, 5.72205e-06)
+shape = SubResource("RectangleShape2D_tuad0")
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_ubxka")]
+visible = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ye1hs")
+volume_db = -4.0
+autoplay = true
+parameters/looping = true

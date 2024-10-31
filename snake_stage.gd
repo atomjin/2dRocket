@@ -1,6 +1,5 @@
 extends TextureRect
-@onready var new_scene_path: String = "res://world.tscn"
-
+@onready var new_scene_path: String = "res://stage/snake_stage.tscn"
 # Drag the fog node from the scene tree to this variable in the editor
 @onready var fog_node: TextureRect = $Fog1
 var original_size: Vector2

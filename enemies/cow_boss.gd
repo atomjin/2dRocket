@@ -24,7 +24,7 @@ var screen_margin = 16  # Margin from screen edge
 
 func _ready() -> void:
 	super()
-	original_position = global_position  # Save the starting position
+	original_position = Vector2(960, 200)   # Save the starting position
 	pick_new_x_target()  # Pick a random x target within bounds
 
 	# Timer connections

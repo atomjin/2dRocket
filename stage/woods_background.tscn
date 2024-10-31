@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6rqseq4ucw1a"]
+
+[ext_resource type="Texture2D" uid="uid://d322ehnglhdv4" path="res://assets/bg/BG_tree.png" id="1_il3lm"]
+
+[node name="WoodsBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer"]
+offset_top = -29.0
+offset_right = 1920.0
+offset_bottom = 1082.0
+texture = ExtResource("1_il3lm")
+expand_mode = 5

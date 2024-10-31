@@ -8,7 +8,8 @@ extends Node2D
 @onready var new_scene_path: String = "res://stage_selecter.tscn"
 @onready var enemy_generator: Node2D = $EnemyGenerator
 @onready var laser_hitbox_2: LaserHitbox = $Ship/LaserHitbox2
-@export var BOSS_SNAKE: PackedScene 
+
+@onready var BOSS_SNAKE: String = "res://enemies/cow_boss.tscn"
 signal score_reached_2000
 
 "res://projectile/laser.tscn"
@@ -50,9 +51,11 @@ func _process(delta: float) -> void:
 	if not calling_boss_snake and current_score >= 2000:
 		spawn_boss()
 		calling_boss_snake = true
-		
-		  # Adjust as needed
-		
+
+		add_child(boss_snake_instance)
+		boss_snake_instance.position = Vector2(960, 200)  # Adjust as needed
+		print("BossCow instantiated!")
+
 	# Update the score label during animation
 	score_label.text = "Score: " + str(current_score)
 
